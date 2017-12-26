@@ -2,29 +2,47 @@
 <html lang=ko>
 <meta charset=UTF-8>
 <title>Tell Me This Number</title>
+
 <head>
-	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
-	<meta name="viewport" content="width=device-width", initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="reactive.css">
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <link rel="stylesheet" type="text/css" href="tellmethisnumber.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="tellmethisnumber.js"></script>
 </head>
 <body>
-	<header class="header">
-			<h1>Tell Me This Number</h1>
-	</header>
-	<article>	
-		<section class="inputNumber text">
-			Enter The number.
-		</section>
-		<section class="inputNumber">
-			
-		</section>
-		<section class="output text">
-			숫자 읽기
-		</section>
-	</article>
-	<footer class="footer">
-		소개
-	</footer>
-
-	
+    <header class="header">
+        <h1>Tell Me This Number</h1>
+    </header>
+    <main class="main">
+	    <section class="numberSection">
+	        <article class="input number">
+	        	Enter The number.
+	        </article>
+	        <div class="spaceInput">
+	        </div>
+	        <article class="output number">
+	        	읽기 숫자. 
+	        </article>
+	        <div class="spaceOutput">
+	        </div>
+	    </section>
+	    <section class="commentarySection">
+	    	<article>
+	    		읽기 연습
+	    	</article>
+	    </section>
+	    <section class="commentSection">
+	    	<article>
+	    		
+	    	</article>
+	    </section>
+	    	 <div class="spaceComment">
+	        </div>
+    </main>
+    <footer class="footer">
+        소개
+    </footer>
 </body>
+</html>
