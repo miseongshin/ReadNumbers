@@ -8,7 +8,7 @@ body{
 	margin: -1px;
     text-align: center;
 }
-.header{
+header{
 	display: block;
 	position: relative;
 	height: 120px;
@@ -16,11 +16,11 @@ body{
     padding:0px;
     vertical-align: middle;
 }
-.main{
+main{
 	display: block;
 	position: relative;
 }
-.footer {
+footer {
 	background-color: #000000;
     left: 0;
     height: 200px;
