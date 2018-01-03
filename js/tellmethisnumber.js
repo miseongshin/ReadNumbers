@@ -10,8 +10,7 @@ var tellmethisnumber = {
 		/*$(".output").hide();*/
 	}
 };
-
-$(document).ready(function(){
-	tellmethisnumber.init();
-});
-
+	
+window.onload= function(){
+  tellmethisnumber.init();
+}
