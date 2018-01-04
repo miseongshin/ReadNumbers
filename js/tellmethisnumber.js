@@ -6,16 +6,29 @@ var tellmethisnumber = {
 	,bindAll : function(){
 		var $enterInput = document.getElementsByClassName("ENTER")[0];
 		$enterInput.onkeydown = function (){
-			tellmethisnumber.setColor($enterInput.value.length);
+			var enterLength = $enterInput.value.length;
+			if (enterLength == 0 ) {
+				tellmethisnumber.init();
+			}else{
+				tellmethisnumber.setColor(enterLength);
+				tellmethisnumber.setResultView();
+			}
 		}
 
-		tellmethisnumber.init();
+			tellmethisnumber.init(), 3000
+
+		
 
 		console.log(parseInt(tellmethisnumber.color.darks[0], 16)-parseInt(tellmethisnumber.color.darks[1], 16));
 		console.log(parseInt(tellmethisnumber.color.darks[1], 16)-parseInt(tellmethisnumber.color.darks[2], 16));
 		console.log(parseInt(tellmethisnumber.color.darks[2], 16)-parseInt(tellmethisnumber.color.darks[3], 16));
 		console.log(parseInt(tellmethisnumber.color.darks[3], 16)-parseInt(tellmethisnumber.color.darks[4], 16));
 	
+	}
+	,setResultView : function(){
+		document.getElementsByClassName("output")[0].style.display='block';
+		document.getElementsByClassName("output")[0].style.display='block';
+		document.getElementsByClassName("other-section")[0].style.display='block';
 	}
 	,setColor : function(length){
 		console.log(length);
@@ -36,12 +49,16 @@ var tellmethisnumber = {
 		document.getElementsByClassName("light-color")[1].style.backgroundColor= lightColor;
 	}
 	,init : function(){
+		//디자인
 		tellmethisnumber.setColor(0);
+		document.getElementsByClassName("output")[0].style.display="none";
+		document.getElementsByClassName("other-section")[0].style.display="none";
 	}
 };
 
 window.onload= function(){
   tellmethisnumber.bindAll();
+  tellLang.init();
 }
 
 
