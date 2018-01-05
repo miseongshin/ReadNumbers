@@ -6,13 +6,10 @@ var tellmethisnumber = {
 	,bindAll : function(){
 		var $enterInput = document.getElementsByClassName("ENTER")[0];
 		$enterInput.onkeydown = function (){
-			var enterLength = $enterInput.value.length;
-			if (enterLength == 0 ) {
-				tellmethisnumber.init();
-			}else{
-				tellmethisnumber.setColor(enterLength);
-				tellmethisnumber.setResultView();
-			}
+			tellmethisnumber.changedNum($enterInput.value);
+		}
+		$enterInput.onkeypress = function (){
+			tellmethisnumber.changedNum($enterInput.value);
 		}
 
 			tellmethisnumber.init(), 3000
@@ -25,6 +22,17 @@ var tellmethisnumber = {
 		console.log(parseInt(tellmethisnumber.color.darks[3], 16)-parseInt(tellmethisnumber.color.darks[4], 16));
 	
 	}
+	,changedNum : function(value){
+			var enterLength = value.length;
+			console.log(value);
+			if (enterLength == 0 ) {
+				tellmethisnumber.init();
+			}else{
+				tellmethisnumber.setColor(enterLength);
+				tellmethisnumber.setResultView();
+			}
+
+	}
 	,setResultView : function(){
 		document.getElementsByClassName("output")[0].style.display='block';
 		document.getElementsByClassName("output")[0].style.display='block';
@@ -35,7 +43,7 @@ var tellmethisnumber = {
 		var darkColor;
 		var lightColor;
 
-		if (0<= length && length < 4) {
+		if (length < 4) {
 			darkColor = "#" + tellmethisnumber.color.darks[length];
 			lightColor = "#" + tellmethisnumber.color.lights[length];
 

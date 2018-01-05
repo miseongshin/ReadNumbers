@@ -28,15 +28,15 @@
     </header>
     <main>
 	    <section class="selected-section">
-	        <article class="input text">
-             	<input class="light-color ENTER" type="text" placeholder="Enter The number." value="">
-	        </article>
-	        <div class="space-2">
-	        </div>
 	        <article class="output light-color text">
 	        	읽기 숫자. 
 	        </article>
 	        <div class="space-1">
+	        </div>
+	        <article class="input text">
+             	<input class="light-color ENTER" type="text" placeholder="Enter The number." value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+	        </article>
+	        <div class="space-2">
 	        </div>
 	    </section>
 	    <section class="other-section">
