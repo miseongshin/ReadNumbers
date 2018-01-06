@@ -16,10 +16,10 @@ var tellmethisnumber = {
 
 		
 
-		console.log(parseInt(tellmethisnumber.color.darks[0], 16)-parseInt(tellmethisnumber.color.darks[1], 16));
-		console.log(parseInt(tellmethisnumber.color.darks[1], 16)-parseInt(tellmethisnumber.color.darks[2], 16));
-		console.log(parseInt(tellmethisnumber.color.darks[2], 16)-parseInt(tellmethisnumber.color.darks[3], 16));
-		console.log(parseInt(tellmethisnumber.color.darks[3], 16)-parseInt(tellmethisnumber.color.darks[4], 16));
+		console.log(parseInt(tellmethisnumber.color.darks[0], 16)-parseInt(tellmethisnumber.color.lights[0], 16));
+		console.log(parseInt(tellmethisnumber.color.darks[1], 16)-parseInt(tellmethisnumber.color.lights[1], 16));
+		console.log(parseInt(tellmethisnumber.color.darks[2], 16)-parseInt(tellmethisnumber.color.lights[2], 16));
+		console.log(parseInt(tellmethisnumber.color.darks[3], 16)-parseInt(tellmethisnumber.color.lights[3], 16));
 	
 	}
 	,changedNum : function(value){
@@ -66,7 +66,7 @@ var tellmethisnumber = {
 
 window.onload= function(){
   tellmethisnumber.bindAll();
-  tellLang.init();
+  tellLang.bindAll();
 }
 
 

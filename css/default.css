@@ -3,31 +3,13 @@
 	
 }
 
-nav {
-  height: 40px;
-  width: 105%;
-  background: #455868;
-  font-size: 11pt;
-  font-weight: bold;
-  position: relative;
-  line-height: 40px; 
-  border: 1px solid #ffffff;
-}
-nav ul {
-  width: 600px;
-  height: 40px;
-}
-nav li {
-  display: inline;
-  float: inherit;
-}
-
 @media ( min-width: 1024px ) {
   footer { 
   	position: relative; 
   	width: auto; 
   }
-    body {
+   body {
   	width: auto; 
   }
+
 }

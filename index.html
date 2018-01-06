@@ -11,55 +11,71 @@
     <link rel="stylesheet" type="text/css" href="./css/default.css">
     <script type="text/javascript" src="./js/tellmethisnumberLang.js"></script>
 </head>
+
 <body class="dark-color">
- 	<nav>
- 		<ui>
- 			<li><a href="https://miseongshin.github.io/" id="writer">신미성</a></li>
- 			<li><a href="https://tellmethisnumber.github.io/" id="tellNum-title">숫자좀 읽어줘</a></li>
- 			<li>
- 				<span id="lang-ko"> 한국어 </span>
- 				<span id="lang-en"> 영어 </span>
- 				<span id="lang-jp"> 일본어 </span>
- 			</li>
- 		</ui>
- 	</nav>
     <header>
-        <h1 id="tellme-title">TELL ME THIS NUMBER</h1>
+    	<section class="select-lang">
+    		<article>
+    			<span id="site_lang">
+    				<span id="select-site-lang">사이트 언어: </span> 
+              	 	<span id="site-nation0" class="site-nation">
+              	 		<img src="./image/nation/icons8-south-korea.png" class="nation-icon" >
+              	 	</span>
+               		<span id="site-nation1" class="site-nation">
+               			<img src="./image/nation/icons8-usa.png" class="nation-icon" >	
+               		</span>
+               		<span id="site-nation2" class="site-nation">
+               			<img src="./image/nation/icons8-japan.png" class="nation-icon">
+               		</span>
+                	<span id="site-nation3" class="site-nation">
+	                	<img src="./image/nation/icons8-china.png" class="nation-icon" >
+                	</span>
+                </span>
+                <span id="other_lang">
+                    <span id="select-read-lang">숫자 읽기 언어: </span>
+                   	<img src="./image/nation/icons8-south-korea.png" class="nation-icon">
+                	<img src="./image/nation/icons8-usa.png" class="nation-icon">
+                	<img src="./image/nation/icons8-japan.png" class="nation-icon">
+                	<img src="./image/nation/icons8-china.png" class="nation-icon">
+               	</span>                
+            </article>
+    	</section>
+        <section class="t-title">
+            <h1 id="tellme-title">TELL ME THIS NUMBER</h1>
+        </section>
     </header>
     <main>
-	    <section class="selected-section">
-	        <article class="output light-color text">
-	        	읽기 숫자. 
-	        </article>
-	        <div class="space-1">
-	        </div>
-	        <article class="input text">
-             	<input class="light-color ENTER" type="text" placeholder="Enter The number." id="ENTER" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-	        </article>
-	        <div class="space-2">
-	        </div>
-	    </section>
-	    <section class="other-section">
-	    	<article class="text">
-	    		읽기 연습
-	    	</article>
-	    </section>
-	    <section class="commentSection">
-	    	<article>
-	    		
-	    	</article>
-	    </section>
-	    	 <div class="space-1">
-	        </div>
+        <section class="selected-section">
+            <article class="output light-color text">
+                읽기 숫자.
+            </article>
+            <div class="space-1">
+            </div>
+            <article class="input text">
+                <input class="light-color ENTER" type="number" autofocus="autofocus" placeholder="Enter The number." id="ENTER" value="">
+            </article>
+            <div class="space-2">
+            </div>
+        </section>
+        <section class="other-section">
+            <article class="text">
+                읽기 연습
+            </article>
+        </section>
+        <section class="commentSection">
+            <article>
+
+            </article>
+        </section>
+        <div class="space-1">
+        </div>
     </main>
     <footer>
-    	This site is a clone site of <a href="https://howsecureismypassword.net">HOW SECURE IS MY PASSWORD?</a>.
-        <br>
-        It was created as part of a <a href="https://github.com/CloneProject">CLONE PROJECT</a> for a studing.
-        <br>
-        Created by miseongShin in Dec 18, 2017 - Jan 18, 2018
+        This site is a clone site of <a href="https://howsecureismypassword.net">HOW SECURE IS MY PASSWORD?</a>.
+        <br> It was created as part of a <a href="https://github.com/CloneProject">CLONE PROJECT</a> for a studing.
+        <br> Created by miseongShin in Dec 18, 2017 - Jan 18, 2018
     </footer>
     <script type="text/javascript" src="./js/tellmethisnumber.js"></script>
 </body>
-</html>
 
+</html>
