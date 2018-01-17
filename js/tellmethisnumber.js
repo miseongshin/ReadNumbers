@@ -4,8 +4,8 @@ var tellmethisnumber = {
 		,lights : ["afc3cd", "e7adad","f1cbb0","afcdb3"]
 	}
 	,bindAll : function(){
-		document.getElementById("ENTER").onkeydown = function (){
-			setTimeout(tellmethisnumber.changedNum(),1000);
+		document.getElementById("ENTER").onkeyup = function (){
+			tellmethisnumber.changedNum();
 		}
 /*		$enterInput.onkeypress = function (){
 			tellmethisnumber.changedNum();
@@ -21,10 +21,10 @@ var tellmethisnumber = {
 
 		var inputNum = parseInt(document.getElementById("ENTER").value.trim());
 		
-		if ( inputNum.isNaN) {
+/*		if ( inputNum.isNaN) {
 			console.log("숯자");
 		} 
-
+*/
 
 /*			var inputNum = document.getElementsByClassName("ENTER")[0].value; 
 			var ouputNum = "";
@@ -65,27 +65,23 @@ var tellmethisnumber = {
 		return inputNum;
 	}*/
 	,getEnterOutNum : function (){
-		var enterText = document.getElementById("ENTER").value.trim();
-		console.log("입력",enterText);
+		var enterText = document.getElementById("ENTER").value;
+		var enterArr = tellmethisnumber.getEnterArr(enterText);
+		document.getElementById("commaNum").innerHTML = enterArr.toString();
+		tellmethisnumber.setColor(enterText.length);
+		
+
+	},getEnterArr : function(enterText){
 		enterText.replace(/[^0-9]/gi, "");
-		enterArrayCnt= Math.floor(enterText.length/3);
-		enterArrayCnt = enterArrayCnt;
-		enterTemp = enterText;
+		var startENum = Math.ceil(enterText.length/3) -1;
 		var enterArr = new Array();
-		for (var i = enterArrayCnt - 1; i >= 0; i--) {
-
-			enterArr[enterArrayCnt - 1 - i] =  enterTemp %1000;
-			enterTemp =Math.floor(enterTemp /1000);
+		var enterTemp = enterText;
+		for (var i = startENum; i >= 0; i--) {
+			var place = Math.floor(enterTemp / Math.pow(1000,i));
+			enterArr[startENum-i] = place;
+			enterTemp = enterTemp - place * Math.pow(1000,i);
 		}
-		console.log("ㅎㅎㅎ",enterArr.toString());
-
-		outEnter = "";
-		for (var i = enterArr.length - 1; i >= 0; i--) {
-			outEnter = outEnter +enterArr[i]+",";
-		}
-		console.log(outEnter);
-		document.getElementById("ENTER").value = outEnter;
-
+		return enterArr;
 	}
 	,setResultView : function(){
 		document.getElementsByClassName("output")[0].style.display='block';

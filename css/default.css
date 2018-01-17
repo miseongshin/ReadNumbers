@@ -3,7 +3,7 @@
 	
 }
 
-@media ( min-width: 712px ) {
+@media ( max-width: 712px ) {
   footer { 
   	position: relative; 
   	width: auto; 
