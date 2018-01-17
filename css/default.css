@@ -3,10 +3,11 @@
 	
 }
 
-@media ( min-width: 1024px ) {
+@media ( min-width: 712px ) {
   footer { 
   	position: relative; 
   	width: auto; 
+    color: red;
   }
    body {
   	width: auto; 

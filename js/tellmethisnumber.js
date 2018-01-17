@@ -5,7 +5,7 @@ var tellmethisnumber = {
 	}
 	,bindAll : function(){
 		document.getElementById("ENTER").onkeydown = function (){
-			tellmethisnumber.changedNum();
+			setTimeout(tellmethisnumber.changedNum(),1000);
 		}
 /*		$enterInput.onkeypress = function (){
 			tellmethisnumber.changedNum();
@@ -16,10 +16,7 @@ var tellmethisnumber = {
 		tellmethisnumber.init();	
 	}
 	,changedNum : function(){
-		var enterText = document.getElementById("ENTER").value.trim();
-		
-		
-		 tellmethisnumber.getEnterOutNum(enterText);
+		 tellmethisnumber.getEnterOutNum();
 
 
 		var inputNum = parseInt(document.getElementById("ENTER").value.trim());
@@ -28,7 +25,6 @@ var tellmethisnumber = {
 			console.log("숯자");
 		} 
 
-		console.log("작동"+enterText);
 
 /*			var inputNum = document.getElementsByClassName("ENTER")[0].value; 
 			var ouputNum = "";
@@ -68,25 +64,27 @@ var tellmethisnumber = {
 		console.log("ouputNum",ouputNum);
 		return inputNum;
 	}*/
-	,getEnterOutNum : function (enterText){
+	,getEnterOutNum : function (){
+		var enterText = document.getElementById("ENTER").value.trim();
+		console.log("입력",enterText);
 		enterText.replace(/[^0-9]/gi, "");
 		enterArrayCnt= Math.floor(enterText.length/3);
 		enterArrayCnt = enterArrayCnt;
 		enterTemp = enterText;
 		var enterArr = new Array();
 		for (var i = enterArrayCnt - 1; i >= 0; i--) {
-			enterArr[i] =  enterTemp %1000;
+
+			enterArr[enterArrayCnt - 1 - i] =  enterTemp %1000;
 			enterTemp =Math.floor(enterTemp /1000);
 		}
+		console.log("ㅎㅎㅎ",enterArr.toString());
 
 		outEnter = "";
 		for (var i = enterArr.length - 1; i >= 0; i--) {
 			outEnter = outEnter +enterArr[i]+",";
 		}
 		console.log(outEnter);
-
-
-
+		document.getElementById("ENTER").value = outEnter;
 
 	}
 	,setResultView : function(){
