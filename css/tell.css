@@ -94,7 +94,7 @@ input[type=number] , input[type=text]{
 	text-align: center;
 	height: 70px;	
 	background-color: #e7adad;
-	width: 105%;
+	width: 100%;
 	display: table-cell;
     vertical-align: middle; 
 }
@@ -118,5 +118,5 @@ input[type=number]::-webkit-outer-spin-button {
   border: 1px solid #ffffff;
 }
 span {
-	clear: true;
+	clear: both;
 }
