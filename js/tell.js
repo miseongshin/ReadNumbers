@@ -9,25 +9,23 @@ var $tell = {
             if ($tell.isNotNumKey(event)) {
                 console.log("숫자아님");
                 ENTER.value = ENTER.value.replace(/[^0-9]/g, "");
-
                 return false;
             }
 
             if($tell.isNotReadNumPatton){
-
 
             }
 
 
             $tell.changedNum();
         }
-        /*		$enterInput.onkeypress = function (){
-        			$tell.changedNum();
-        		}*/
-
-
+       document.getElementById("selectSiteLang").addEventListener("select", $tell.setSiteLang(), false);
 
         $tell.init();
+    },
+    setSiteLang : function(){
+       var test = document.getElementById("selectSiteLang").value;
+       console.log(test);
     },
     changedNum: function() {
             $tell.getEnterOutNum();
@@ -83,8 +81,40 @@ var $tell = {
         var enterText = document.getElementById("ENTER").value;
         var enterArr = $tell.getEnterArr(3, enterText);
         document.getElementById("tellme-title").innerHTML = enterArr.toString();
-
-
+        var lang = 0;
+        var readArr = $tell.getReadArr(4, enterText, lang);
+        var readText = $tell.getArrToText(readArr);
+        document.getElementById("tellme-read").innerHTML = readText;
+        
+    },
+    getArrToText : function(readArr){
+        var readText = "";
+        for (var i = readArr.length - 1; i >= 0; i--) {
+            readText += readArr[readArr.length - 1-i] +" ";
+        }
+        return readText;
+    },
+    getReadArr : function(num, enterText, lang){
+        var langArr = new Array(); 
+        var enterArr = $tell.getEnterArr(num, enterText);
+        var enterArrLangth = enterArr.length;
+        var count = 0;
+        for (var i =  enterArrLangth - 1; i >= 0; i--) {
+            var inputNum = enterArr[i];
+            var inputNumLength = inputNum.length;
+            var readUnit = "";
+            for (var j = inputNumLength - 1; j >= 0; j--) {
+                var num = inputNum.substring(inputNumLength-(j+1),inputNumLength-j);
+                if(j == 0 || num != 1 ){
+                     readUnit += $tellLang.lang1Arr[lang][num];
+                }
+                readUnit += $tellLang.lang10Arr[lang][j];
+            }
+            readUnit += $tellLang.langUnitArr[lang][count];
+            count++;
+            langArr[i]=readUnit;
+        }
+        return langArr;
 
     },
     getEnterArr: function(num, enterText) { //1234567
@@ -110,9 +140,9 @@ var $tell = {
     },
     isNotNumKey: function(event) {
         event = event || window.event;
-        $tell.getKeyNum(event);
+        var keyID= $tell.getKeyNum(event);
 
-        if ((keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105)) {
+        if ((keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8) {
             return false;
         } else {
             return true;
@@ -120,7 +150,7 @@ var $tell = {
     },
     getKeyNum : function(event){
         var keyID = (event.which) ? event.which : event.keyCode;
-        console.log("keyID", keyID);
+        //console.log("keyID", keyID);
         return keyID;
     },
     setResultView: function() {
@@ -158,7 +188,7 @@ var $tell = {
 
 window.onload = function() {
     $tell.bindAll();
-    tellLang.bindAll();
+    $tellLang.bindAll();
 }
 
 

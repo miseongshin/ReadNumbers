@@ -18,19 +18,14 @@
     	<section class="select-lang">
     		<article>
     			<span id="site_lang">
-    				<span id="select-site-lang">사이트 언어: </span> 
-              	 	<span id="site-nation0" class="site-nation">
-              	 		<img src="./image/nation/icons8-south-korea.png" class="nation-icon" >
-              	 	</span>
-               		<span id="site-nation1" class="site-nation">
-               			<img src="./image/nation/icons8-usa.png" class="nation-icon" >	
-               		</span>
-               		<span id="site-nation2" class="site-nation">
-               			<img src="./image/nation/icons8-japan.png" class="nation-icon">
-               		</span>
-                	<span id="site-nation3" class="site-nation">
-	                	<img src="./image/nation/icons8-china.png" class="nation-icon" >
-                	</span>
+    				<span>
+                        <select id="selectSiteLang">
+                            <option id="select-site-lang">사이트 언어</option>
+                            <option id="site-nation0" value="0">한국어</option>
+                            <option id="site-nation0" value="1">영어</option>
+                            <option id="site-nation0" value="2">일본어</option>
+                            <option id="site-nation0" value="3">중국어</option>
+                        </select>
                 </span>
                 <span id="read_lang">
                     <span id="select-read-lang">숫자 읽기 언어: </span>
@@ -43,6 +38,9 @@
     	</section>
         <section class="t-title">
             <h1 id="tellme-title">TELL ME THIS NUMBER</h1>
+        </section> 
+        <section>
+             <h2 id="tellme-read">TELL ME THIS NUMBER</h2>
         </section>
     </header>
     <main>
