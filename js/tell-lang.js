@@ -70,13 +70,13 @@ var $tellLang = {
                 document.getElementById("site-nation" + i).style.display = 'inline';;
             }
         }
-        document.getElementById("select-site-lang").innerHTML = $tellLang.info.selSiteLang[num];
-        document.getElementById("select-read-lang").innerHTML = $tellLang.info.selReadLang[num];
-        document.getElementById("tellme-title").textContent = $tellLang.info.tellNumTitle[num];
-        document.getElementsByTagName("title")[0].text = $tellLang.info.tellNumTitle[num];
+        /*document.getElementById("select-site-lang").innerHTML = $tellLang.info.selSiteLang[num];*/
+        /*document.getElementById("select-read-lang").innerHTML = $tellLang.info.selReadLang[num];*/
+        /*document.getElementById("tellme-title").textContent = $tellLang.info.tellNumTitle[num];*/
+   /*     document.getElementsByTagName("title")[0].text = $tellLang.info.tellNumTitle[num];
         document.getElementById("ENTER").placeholder = $tellLang.info.enterNum[num];
         document.getElementsByTagName("footer")[0].innerHTML = $tellLang.info.footerText[num];
-
+*/
 
     },
     init: function() {

@@ -4,7 +4,15 @@ var $tell = {
         lights: ["afc3cd", "e7adad", "f1cbb0", "afcdb3"]
     },
     bindAll: function() {
-        var ENTER = document.getElementById("ENTER");
+    	$(document).on("keyup",function(e){
+    		if ($tell.isNotNumKey(event)) {
+                console.log("숫자아님");
+                ENTER.value = ENTER.value.replace(/[^0-9]/g, "");
+                return false;
+            }
+    		$tell.changedNum();
+    	});
+/*        var ENTER = document.getElementById("ENTER");
         ENTER.onkeyup = function(event) {
             if ($tell.isNotNumKey(event)) {
                 console.log("숫자아님");
@@ -20,7 +28,7 @@ var $tell = {
             $tell.changedNum();
         }
        document.getElementById("selectSiteLang").addEventListener("select", $tell.setSiteLang(), false);
-
+*/
         $tell.init();
     },
     setSiteLang : function(){
@@ -29,7 +37,8 @@ var $tell = {
     },
     changedNum: function() {
             $tell.getEnterOutNum();
-
+	        $("main .title-image").hide();
+    	    $("header .title-image").show();
 
             var inputNum = parseInt(document.getElementById("ENTER").value.trim());
 
@@ -80,11 +89,11 @@ var $tell = {
     getEnterOutNum: function() {
         var enterText = document.getElementById("ENTER").value;
         var enterArr = $tell.getEnterArr(3, enterText);
-        document.getElementById("tellme-title").innerHTML = enterArr.toString();
+        $(".out-number h1").html(enterArr.toString());
         var lang = 0;
         var readArr = $tell.getReadArr(4, enterText, lang);
         var readText = $tell.getArrToText(readArr);
-        document.getElementById("tellme-read").innerHTML = readText;
+        $(".out-read-lang1 h1").html(readText);
         
     },
     getArrToText : function(readArr){
@@ -105,12 +114,16 @@ var $tell = {
             var readUnit = "";
             for (var j = inputNumLength - 1; j >= 0; j--) {
                 var num = inputNum.substring(inputNumLength-(j+1),inputNumLength-j);
-                if(j == 0 || num != 1 ){
-                     readUnit += $tellLang.lang1Arr[lang][num];
+                if ( num != 0 ) {
+                	if((j == 0 || num != 1 ) || lang ==3 ){
+                		readUnit += $tellLang.lang1Arr[lang][num];
+                	}
+		            readUnit += $tellLang.lang10Arr[lang][j];
                 }
-                readUnit += $tellLang.lang10Arr[lang][j];
             }
-            readUnit += $tellLang.langUnitArr[lang][count];
+            if (readUnit.length !=0) {
+            	readUnit += $tellLang.langUnitArr[lang][count];
+            }
             count++;
             langArr[i]=readUnit;
         }
@@ -154,9 +167,9 @@ var $tell = {
         return keyID;
     },
     setResultView: function() {
+/*        document.getElementsByClassName("output")[0].style.display = 'block';
         document.getElementsByClassName("output")[0].style.display = 'block';
-        document.getElementsByClassName("output")[0].style.display = 'block';
-        document.getElementsByClassName("other-section")[0].style.display = 'block';
+        document.getElementsByClassName("other-section")[0].style.display = 'block';*/
     },
     setColor: function(length) {
         var darkColor;
@@ -171,27 +184,25 @@ var $tell = {
         }
 
         /*console.log(darkColor ," | ",lightColor);*/
-        document.getElementsByClassName("dark-color")[0].style.backgroundColor = darkColor;
+/*        document.getElementsByClassName("dark-color")[0].style.backgroundColor = darkColor;
         document.getElementsByClassName("light-color")[0].style.backgroundColor = lightColor;
         document.getElementsByClassName("light-color")[1].style.backgroundColor = lightColor;
-
+*/
         $tell.setResultView();
     },
     init: function() {
-        //디자인 초기화
+        //생상 초기화
         $tell.setColor(0);
+        //디자인 초기화
+        $("main .title-image").show();
+        $("header .title-image").hide();
         //읽기 박스 초기화
-        document.getElementsByClassName("output")[0].style.display = "none";
-        document.getElementsByClassName("other-section")[0].style.display = "none";
+        
+       /* document.getElementsByClassName("other-section")[0].style.display = "none";*/
     }
 };
 
-window.onload = function() {
-    $tell.bindAll();
+$(document).ready(function(){
+	$tell.bindAll();
     $tellLang.bindAll();
-}
-
-
-/*parseInt("afc3cd", 16)
-(255).toString(16)
-*/
+});

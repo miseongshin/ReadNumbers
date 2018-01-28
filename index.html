@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=ko>
 <meta charset=UTF-8>
-<title>Tell Me This Number</title>
+<title>Growth! Read Numbers</title>
 
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="./css/tell.css">
     <link rel="stylesheet" type="text/css" href="./css/tell-font.css">
     <link rel="stylesheet" type="text/css" href="./css/default.css">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="./js/tell-lang.js"></script>
     <script type="text/javascript" src="./js/tell-num.js"></script>
 </head>
@@ -16,59 +18,62 @@
 <body class="dark-color">
     <header>
     	<section class="select-lang">
-    		<article>
-    			<span id="site_lang">
-    				<span>
-                        <select id="selectSiteLang">
-                            <option id="select-site-lang">사이트 언어</option>
-                            <option id="site-nation0" value="0">한국어</option>
-                            <option id="site-nation0" value="1">영어</option>
-                            <option id="site-nation0" value="2">일본어</option>
-                            <option id="site-nation0" value="3">중국어</option>
-                        </select>
-                </span>
-                <span id="read_lang">
-                    <span id="select-read-lang">숫자 읽기 언어: </span>
-                   	<img src="./image/nation/icons8-south-korea.png" class="nation-icon">
-                	<img src="./image/nation/icons8-usa.png" class="nation-icon">
-                	<img src="./image/nation/icons8-japan.png" class="nation-icon">
-                	<img src="./image/nation/icons8-china.png" class="nation-icon">
-               	</span>                
-            </article>
+            <span class="title-image">
+                <img src="./image/title/number-title-header-en.png" alt="Read Numbers Title">
+            </span>
+    		<span class="header-comment1">
+               in
+    		</span>
+            <select id="base-Lang" class="bg-white">
+                <option>language1</option>
+            </select>
+            <span class="header-comment2">
+               and
+            </span>
+            <select id="add-lang" class="light-color">
+                <option>language2</option>
+            </select>
+<!--             <span class="dark-color">
+                <button class="button">go to Game Mode >></button>
+            </span> -->
     	</section>
-        <section class="t-title">
-            <h1 id="tellme-title">TELL ME THIS NUMBER</h1>
-        </section> 
-        <section>
-             <h2 id="tellme-read">TELL ME THIS NUMBER</h2>
-        </section>
     </header>
     <main>
-        <section class="selected-section">
+        <section class="title-image">
+            <img src="./image/title/number-title-header-en.png">
+        </section> 
+        <section class="out-number">
+            <h1></h1>
+        </section>
+        <section class="out-read-lang1">
+            <h1></h1>
+        </section>
+        <section class="enter-number">
+            <input type="number" step="100" data-a-dec="," class="light-color ENTER"  autofocus="autofocus" placeholder="Enter The Number." id="ENTER" value="" min="0" max="9">
+        </section>
+<!--         <section class="selected-section" hidden="hidden">
             <article class="output light-color text">
             	<div id="commaNum"></div>
                 읽기 숫자.
             </article>
             <div class="space-1">
             </div>
-            <article class="input text">
-                <input type="number" step="100" data-a-dec="," class="light-color ENTER"  autofocus="autofocus" placeholder="Enter The number." id="ENTER" value="" min="0" max="9">
-            </article>
+
             <div class="space-2">
             </div>
-        </section>
-        <section class="other-section">
+        </section> -->
+<!--         <section class="other-section" hidden="hidden">
             <article class="text">
                 읽기 연습
             </article>
         </section>
-        <section class="commentSection">
+        <section class="commentSection" hidden="hidden">
             <article>
 
             </article>
         </section>
         <div class="space-1">
-        </div>
+        </div> -->
     </main>
     <footer>
         This site is a clone site of <a href="https://howsecureismypassword.net">HOW SECURE IS MY PASSWORD?</a>.
