@@ -2,14 +2,7 @@
 * {
 	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
 }
-.t-title {
-	font-size: 24px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 700;
 
-	font-stretch: ultra-condensed;
-}
 footer a{
 	color: white;
 	text-decoration: underline;

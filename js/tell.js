@@ -4,10 +4,11 @@ var $tell = {
         lights: ["afc3cd", "e7adad", "f1cbb0", "afcdb3"]
     },
     bindAll: function() {
-    	$(document).on("keyup",function(e){
+    	$(document).on("keyup","input[type=number]" ,function(e){
     		if ($tell.isNotNumKey(event)) {
                 console.log("숫자아님");
                 ENTER.value = ENTER.value.replace(/[^0-9]/g, "");
+
                 return false;
             }
     		$tell.changedNum();
@@ -30,10 +31,6 @@ var $tell = {
        document.getElementById("selectSiteLang").addEventListener("select", $tell.setSiteLang(), false);
 */
         $tell.init();
-    },
-    setSiteLang : function(){
-       var test = document.getElementById("selectSiteLang").value;
-       console.log(test);
     },
     changedNum: function() {
             $tell.getEnterOutNum();
@@ -190,13 +187,20 @@ var $tell = {
 */
         $tell.setResultView();
     },
+    setUpSelectBox : function (siteLangNum){
+    	$(".1st-lang-select").val(siteLangNum);
+    	$(".2nd-lang-select").find('[value=siteLangNum]').wrap("<span>");
+    },
     init: function() {
-        //생상 초기화
+        //색상 초기화
         $tell.setColor(0);
         //디자인 초기화
         $("main .title-image").show();
         $("header .title-image").hide();
-        //읽기 박스 초기화
+        //읽기 셀렉트 박스 초기화
+        var siteLangNum = $tellLang.getSiteLang();
+        $tell.setUpSelectBox(siteLangNum);
+        
         
        /* document.getElementsByClassName("other-section")[0].style.display = "none";*/
     }

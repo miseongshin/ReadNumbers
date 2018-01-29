@@ -9,13 +9,14 @@ var $tellLang = {
         "zh": 3
     },
     info: {
-        selSiteLang: ["다른 사이트 언어", "Other Site Language", "サイトの言語を変更:", "其他网站语言："],
+        comment: ["그리고", "and", "と", "和"],
         selReadLang: ["숫자 읽기 언어 : ", "Numeric reading language : ", "数字を読む言語 : ", "数字阅读语言："],
         tellNumTitle: ["숫자 좀 말해줘요.", "TELL ME THIS NUMBER", "この番号を言ってくれ", "告诉我这个数字"],
         enterNum: ["숫자 입력.", "Enter The Number.", "番号を入力", "输入号码"],
         langKo: ["한국어", "KOREAN", "韓国", "韩国语"],
         langEn: ["영어", "English", "アメリカ", "英语"],
         langJp: ["일본어", "Japanese", "日本", "日本语"],
+        langZh: ["중국어", "Chinese", "中国", "中国语"],
         footerText: [
             "이 사이트는 <a href='https://howsecureismypassword.net'>[내 비밀번호는 얼마나 안전할까?]</a>의 복제 사이트 입니다." +
             "<br>학습을 위한 <a href='https://github.com/CloneProject'>클론 프로젝트</a>의 일부로 만들었습니다. " +
@@ -41,35 +42,50 @@ var $tellLang = {
     	0 : ["","십","백","천"] 
     },
     bindAll: function() {
-        var $siteLangs = document.getElementsByClassName("site-nation");
-        for (var i = 0; i < $siteLangs.length; i++) {
-            var siteLang = $siteLangs[i];
-            siteLang.onclick = function() {
-                var num = this.id.substring(11);
-                $tellLang.setUILang(num);
-            }
-        }
-
+        $(document).on("change",".1st-lang-select",function(e){
+            var num = $(".1st-lang-select option:selected").val();
+                $tellLang.setSiteLang(num);
+                console.log(num);
+        });
         $tellLang.init();
     },
     setLanguage: function() {
+        var num = $tellLang.getSiteLang();
+        $tellLang.setSiteLang(num);
+    },
+    getSiteLang : function(){
         var lang = navigator.language || navigator.userLanguage;
         var num = $tellLang.lang[lang.substring(0, 2)];
         if (typeof num == "undefined") {
             num = 1;
         }
-
-        $tellLang.setUILang(num);
+        return num;
     },
-    setUILang: function(num) {
-        var totalLang = document.getElementsByClassName("site-nation").length;
-        for (var i = totalLang - 1; i >= 0; i--) {
-            if (num == i) {
-                document.getElementById("site-nation" + i).style.display = 'none';
-            } else {
-                document.getElementById("site-nation" + i).style.display = 'inline';;
-            }
+    setSiteLang: function(num) {
+        var imagePath;
+        var comment1 = "";
+        var comment2 = "";
+        if (num == 0 ) {
+           imagePath = "./image/title/number-title-header-ko.png";
+
+        } else {
+            imagePath = "./image/title/number-title-header-en.png";
+
         }
+
+        if (num ==1 ) {
+            comment1 = "in";
+        }else{
+            comment1 = "";
+        }
+        $("header .comment1").text(comment1);
+        $("header .comment2").text($tellLang.info.comment[num]);
+        $("header .title-image img").attr('src',imagePath);
+        $(".korean").text($tellLang.info.langKo[num]);
+        $(".english").text($tellLang.info.langEn[num]);
+        $(".japanese").text($tellLang.info.langJp[num]);
+        $(".chinese").text($tellLang.info.langZh[num]);
+
         /*document.getElementById("select-site-lang").innerHTML = $tellLang.info.selSiteLang[num];*/
         /*document.getElementById("select-read-lang").innerHTML = $tellLang.info.selReadLang[num];*/
         /*document.getElementById("tellme-title").textContent = $tellLang.info.tellNumTitle[num];*/
