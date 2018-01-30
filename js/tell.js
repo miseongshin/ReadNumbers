@@ -13,6 +13,11 @@ var $tell = {
             }
     		$tell.changedNum();
     	});
+
+    	$(document).on("change",".1st-lang-select",function(e){
+            var siteLangNum = $(".1st-lang-select option:selected").val();
+            $tell.setUpSiteView(siteLangNum);
+        });
 /*        var ENTER = document.getElementById("ENTER");
         ENTER.onkeyup = function(event) {
             if ($tell.isNotNumKey(event)) {
@@ -90,8 +95,12 @@ var $tell = {
         var lang = 0;
         var readArr = $tell.getReadArr(4, enterText, lang);
         var readText = $tell.getArrToText(readArr);
-        $(".out-read-lang1 h1").html(readText);
-        
+         $(".out-read-lang1 h1").html(readText);
+/*
+        var readArr2 = $tell.getReadArr(4, enterText, lang);
+        var readText2 = $tell.getArrToText(readArr2);
+        */
+        $(".out-read-lang2 h1").html(readText);
     },
     getArrToText : function(readArr){
         var readText = "";
@@ -187,9 +196,20 @@ var $tell = {
 */
         $tell.setResultView();
     },
-    setUpSelectBox : function (siteLangNum){
+    setUpSiteView : function (siteLangNum){
     	$(".1st-lang-select").val(siteLangNum);
-    	$(".2nd-lang-select").find('[value=siteLangNum]').wrap("<span>");
+    	if (siteLangNum == 1) {
+    		$(".2nd-lang-select").val(0);
+    	}else{
+    		$(".2nd-lang-select").val(1);
+    	}
+
+		$(".1st-lang-select option[value="+siteLangNum+"]").hide();
+    	$(".1st-lang-select option[value!="+siteLangNum+"]").show();
+    	$(".2nd-lang-select option[value="+siteLangNum+"]").hide();
+    	$(".2nd-lang-select option[value!="+siteLangNum+"]").show();
+
+    	$tellLang.setSiteLang(siteLangNum);
     },
     init: function() {
         //색상 초기화
@@ -199,10 +219,7 @@ var $tell = {
         $("header .title-image").hide();
         //읽기 셀렉트 박스 초기화
         var siteLangNum = $tellLang.getSiteLang();
-        $tell.setUpSelectBox(siteLangNum);
-        
-        
-       /* document.getElementsByClassName("other-section")[0].style.display = "none";*/
+        $tell.setUpSiteView(siteLangNum);
     }
 };
 

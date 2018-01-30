@@ -42,11 +42,7 @@ var $tellLang = {
     	0 : ["","십","백","천"] 
     },
     bindAll: function() {
-        $(document).on("change",".1st-lang-select",function(e){
-            var num = $(".1st-lang-select option:selected").val();
-                $tellLang.setSiteLang(num);
-                console.log(num);
-        });
+
         $tellLang.init();
     },
     setLanguage: function() {
@@ -80,7 +76,7 @@ var $tellLang = {
         }
         $("header .comment1").text(comment1);
         $("header .comment2").text($tellLang.info.comment[num]);
-        $("header .title-image img").attr('src',imagePath);
+        $(".title-image img").attr('src',imagePath);
         $(".korean").text($tellLang.info.langKo[num]);
         $(".english").text($tellLang.info.langEn[num]);
         $(".japanese").text($tellLang.info.langJp[num]);
