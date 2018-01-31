@@ -66,8 +66,8 @@ header{
 header select {
 	width: 80px;
 }
-header .button {
-
+header .table {
+	height: 60px;
 }
 main{
 	display: block;

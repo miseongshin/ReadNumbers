@@ -18,6 +18,11 @@ var $tell = {
             var siteLangNum = $(".1st-lang-select option:selected").val();
             $tell.setUpSiteView(siteLangNum);
         });
+
+        $(document).on("change",".2st-lang-select",function(e){
+        	var siteLangNum = $(".1st-lang-select option:selected").val();
+            $tell.setUpSiteView(siteLangNum);
+        });
 /*        var ENTER = document.getElementById("ENTER");
         ENTER.onkeyup = function(event) {
             if ($tell.isNotNumKey(event)) {
@@ -89,18 +94,18 @@ var $tell = {
         	}*/
         ,
     getEnterOutNum: function() {
-        var enterText = document.getElementById("ENTER").value;
+        var enterText = $("#ENTER").val();
         var enterArr = $tell.getEnterArr(3, enterText);
         $(".out-number h1").html(enterArr.toString());
-        var lang = 0;
-        var readArr = $tell.getReadArr(4, enterText, lang);
+        var lang1 = 0;
+        var readArr = $tell.getReadArr($tellLang.langUnitSize[lang1], enterText, lang1);
         var readText = $tell.getArrToText(readArr);
          $(".out-read-lang1 h1").html(readText);
-/*
-        var readArr2 = $tell.getReadArr(4, enterText, lang);
+        var lang2 = $(".2nd-lang-select option:selected").val();
+        var readArr2 = $tell.getReadArr($tellLang.langUnitSize[lang2], enterText, lang2);
         var readText2 = $tell.getArrToText(readArr2);
-        */
-        $(".out-read-lang2 h1").html(readText);
+        
+        $(".out-read-lang2 h1").html(readText2);
     },
     getArrToText : function(readArr){
         var readText = "";
@@ -110,6 +115,7 @@ var $tell = {
         return readText;
     },
     getReadArr : function(num, enterText, lang){
+    	console.log(num,enterText,lang);
         var langArr = new Array(); 
         var enterArr = $tell.getEnterArr(num, enterText);
         var enterArrLangth = enterArr.length;
