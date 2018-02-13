@@ -48,51 +48,7 @@ var $tell = {
     	    $("header .title-image").show();
 
             var inputNum = parseInt(document.getElementById("ENTER").value.trim());
-
-            /*		if ( inputNum.isNaN) {
-            			console.log("숯자");
-            		} 
-            */
-
-            /*			var inputNum = document.getElementsByClassName("ENTER")[0].value; 
-            			var ouputNum = "";
-
-            			if (inputNum == "" ) {
-            				$tell.init();
-            			}else{
-            				ouputNum = $tell.getReadNumber(inputNum);
-            				if (ouputNum =='false') {
-            					return false;
-            				} 
-            				$tell.setColor(inputNum.length);
-            			}
-
-            			console.log(inputNum + "|" + ouputNum);*/
-            //document.getElementById("ENTER").value = ouputNum;
-        }
-        /*	,getReadNumber : function(inputNum){
-        		var ouputNums = new Array();
-        		var ouputNum = "";
-        		if (typeof inputNum != 'number') {
-        			alert("number is only allowed");
-        			document.getElementById("ENTER").value = "";
-        			return false;
-        		} 
-        		var tempNum = Number(inputNum);
-        		var count = (inputNum.langth)/3;
-        		console.log("count["+count+"], langth["+inputNum.langth);
-        		for (var i = count - 1; i >= 0; i--) {
-        			ouputNums[(count-i-1)] = tempNum % 1000;
-        			tempNum = tempNum / 1000;
-        		}
-
-        		for (var i = count - 1; i >= 0; i--) {
-        			ouputNum += ouputNums[(count-i-1)];
-        		}
-        		console.log("ouputNum",ouputNum);
-        		return inputNum;
-        	}*/
-        ,
+    },
     getEnterOutNum: function() {
         var enterText = $("#ENTER").val();
         var enterArr = $tell.getEnterArr(3, enterText);
@@ -115,12 +71,64 @@ var $tell = {
         return readText;
     },
     getReadArr : function(num, enterText, lang){
-    	console.log(num,enterText,lang);
-        var langArr = new Array(); 
         var enterArr = $tell.getEnterArr(num, enterText);
-        var enterArrLangth = enterArr.length;
-        var count = 0;
-        for (var i =  enterArrLangth - 1; i >= 0; i--) {
+        var langArr = new Array(); 
+
+        if (lang == $tellLang.lang['en']) {
+        	var space = " ";
+        	var plural = "s";
+	        for (var i =  enterArr.length - 1; i >= 0; i--) {
+    	        var inputNum = enterArr[i];
+            	var readUnit = "";
+            	var remainingNum = "";
+	            //100
+    	        if (inputNum.length ==3) {
+        	    	var num100 = inputNum.substring(0,1);
+            		remainingNum = inputNum.substring(1,3);
+            		if (num100 !=0) {
+            			readUnit += space + $tellLang.lang1Arr[lang][num100];
+            			readUnit += space + $tellLang.lang10Arr[lang][2];
+            		} 
+            		if (num100 != 0 && num100 != 1) {
+            			readUnit += plural;
+            		} 
+            	}else{
+            		remainingNum = inputNum;
+            	}
+
+            	console.log("십의자리",remainingNum);
+            	var num10 = parseInt(remainingNum);
+            	if (num10 <=19) {
+            		readUnit += space +$tellLang.lang1Arr[lang][num10];
+            			console.log( readUnit);
+            	} else {
+            		if ((num10 / 10) > 1 ) {
+            		var tenSeat = Math.floor(num10 / 10); 
+            			readUnit += space + $tellLang.lang20Arr[lang][tenSeat];
+            			if ( i != enterArr.length - 1) {
+            				readUnit += space;
+            			} 
+            		}
+            		console.log("num10 % 10",num10 % 10);
+            		if ((num10 % 10) > 0 ) {
+             			readUnit += space + $tellLang.lang1Arr[lang][(num10 % 10)];
+            		} 
+            	} 
+            	           	
+            	if (readUnit.length !=0) {
+            		readUnit += $tellLang.langUnitArr[lang][enterArr.length - i-1];
+            		if ((readUnit !=  $tellLang.lang1Arr[lang][1]) &&( i != enterArr.length - 1))
+            		{
+            			readUnit += plural;
+            		} 
+            	}
+            	langArr[i]=readUnit;
+            }
+
+        	return langArr;
+        } 
+
+        for (var i =  enterArr.length - 1; i >= 0; i--) {
             var inputNum = enterArr[i];
             var inputNumLength = inputNum.length;
             var readUnit = "";
@@ -134,9 +142,8 @@ var $tell = {
                 }
             }
             if (readUnit.length !=0) {
-            	readUnit += $tellLang.langUnitArr[lang][count];
+            	readUnit += $tellLang.langUnitArr[lang][enterArr.length - i-1];
             }
-            count++;
             langArr[i]=readUnit;
         }
         return langArr;

@@ -32,6 +32,7 @@ header .down-line {
 main .title-image img {
     height:auto;
     width: 100%;
+    max-width: 1000px;
 }
 
 /*fixed CSS*/
