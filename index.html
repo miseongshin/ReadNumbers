@@ -16,80 +16,56 @@
 </head>
 
 <body class="dark-color">
-<header>
-    <section>
-        <img src="./image/title/number-title-header-en.png" alt="Read Numbers Title" style="height:60px;float:left;">
-        <div style="height:30px;">
-            <span>in</span>
-            <select class="bg-white 1st-lang-select">
-                <option value="0" class="korean">Korean</option>
-                <option value="1" class="english">English</option>
-                <option value="2" class="japanese">Japanese</option>
-                <option value="3" class="chinese">Chinese</option>
-            </select>
-        </div>
-        <div style="height:30px;">
-            <span>and</span>
-            <select class="bg-white 2nd-lang-select">
-                <option value="1" class="english">English</option>
-                <option value="0" class="korean">Korean</option>
-                <option value="2" class="japanese">Japanese</option>
-                <option value="3" class="chinese">Chinese</option>
-            </select>
-        </div>
+    <header>
+        <section class="title-image">
+            <img src="./image/title/number-title-header-en.png" alt="Read Numbers Title" style="height:60px;float:left;">
+            <div class="header-select">
+                <span>in</span>
+                <select class="bg-white 1st-lang-select">
+                    <option value="0" class="korean">Korean</option>
+                    <option value="1" class="english">English</option>
+                    <option value="2" class="japanese">Japanese</option>
+                    <option value="3" class="chinese">Chinese</option>
+                </select>
+            </div>
+            <div class="header-select">
+                <span>and</span>
+                <select class="bg-white 2nd-lang-select">
+                    <option value="1" class="english">English</option>
+                    <option value="0" class="korean">Korean</option>
+                    <option value="2" class="japanese">Japanese</option>
+                    <option value="3" class="chinese">Chinese</option>
+                </select>
+            </div>
 
-        <!--             <span class="dark-color">
-                        <button class="button">go to Game Mode </button>
-                    </span> -->
-    </section>
-</header>
-<main>
-    <section class="title-image">
-        <img src="./image/title/number-title-header-en.png">
-    </section>
-    <section class="out-number">
-        <h1></h1>
-    </section>
-    <section class="out-read-lang1">
-        <h1></h1>
-    </section>
-    <section class="out-read-lang2">
-        <h1></h1>
-    </section>
-    <section class="enter-number">
-        <input type="number" step="100" data-a-dec="," class="light-color ENTER" autofocus="autofocus"
-               placeholder="Enter The Number." id="ENTER" value="" min="0" max="9">
-    </section>
-    <!--         <section class="selected-section" hidden="hidden">
-                <article class="output light-color text">
-                    <div id="commaNum"></div>
-                    읽기 숫자.
-                </article>
-                <div class="space-1">
-                </div>
-
-                <div class="space-2">
-                </div>
-            </section> -->
-    <!--         <section class="other-section" hidden="hidden">
-                <article class="text">
-                    읽기 연습
-                </article>
-            </section>
-            <section class="commentSection" hidden="hidden">
-                <article>
-
-                </article>
-            </section>
-            <div class="space-1">
-            </div> -->
-</main>
-<footer>
-    This site is a clone site of <a href="https://howsecureismypassword.net">HOW SECURE IS MY PASSWORD?</a>.
-    <br> It was created as part of a <a href="https://github.com/CloneProject">CLONE PROJECT</a> for a studing.
-    <br> Created by miseongShin in Dec 18, 2017 - Jan 18, 2018
-</footer>
-<script type="text/javascript" src="./js/tell.js"></script>
+        </section>
+    </header>
+    <main>
+        <section class="title-image">
+            <img src="./image/title/number-title-header-en.png">
+        </section>
+        <section class="out-number">
+            <h1></h1>
+        </section>
+        <section class="out-read-lang1">
+            <h1></h1>
+        </section>
+        <section class="out-read-lang2">
+            <h1></h1>
+        </section>
+        <section class="enter-number">
+            <input type="number" step="100" data-a-dec="," class="light-color ENTER" autofocus="autofocus"
+            placeholder="Enter The Number." id="ENTER" value="" min="0" max="9" style="ime-mode: disabled;">
+        </section>
+        <section class="mobile-space">
+        </section>
+    </main>
+    <footer>
+        This site is a clone site of <a href="https://howsecureismypassword.net">HOW SECURE IS MY PASSWORD?</a>.
+        <br> It was created as part of a <a href="https://github.com/CloneProject">CLONE PROJECT</a> for a studing.
+        <br> Created by miseongShin in Dec 18, 2017 - Jan 18, 2018
+    </footer>
+    <script type="text/javascript" src="./js/tell.js"></script>
 </body>
 
 </html>

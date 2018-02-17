@@ -29,39 +29,43 @@ header .up-line {
 header .down-line {
 	vertical-align: bottom;
 }
+header .header-select{
+	display: inline;
+	height:30px;
+}
 main .title-image img {
-    height:auto;
-    width: 100%;
-    max-width: 1000px;
+	height:auto;
+	width: 100%;
+	max-width: 1000px;
 }
 
 /*fixed CSS*/
 
 body{
 	width: 100%;
-    margin: 0px;
-    text-align: center;
+	margin: 0px;
+	text-align: center;
 }
 
 header{
 	display: block;
 	position: relative;
 	height: 60px;
-    width: 100%;
-    min-width: 360px;
-    background: #000000;
-    font-size: 12pt;
-    color: #ffffff;
-    font-weight: bold;
+	width: 100%;
+	min-width: 360px;
+	background: #000000;
+	font-size: 12pt;
+	color: #ffffff;
+	font-weight: bold;
 
-    /*line-height: 60px; */
-    border: 1px solid #ffffff;
-    border-right:  0px;
-    border-left: 0px;
-    border-top: 0px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;  
-    box-sizing: border-box; 
+	/*line-height: 60px; */
+	border: 1px solid #ffffff;
+	border-right:  0px;
+	border-left: 0px;
+	border-top: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;  
+	box-sizing: border-box; 
 }
 
 header select {
@@ -76,16 +80,16 @@ main{
 }
 footer {
 	background-color: #000000;
-    height: 200px;
-    width: 100%;
-    min-width: 360px;
-    bottom: 0;
-    color: #ffffff;
-    position: absolute;
+	height: 200px;
+	width: 100%;
+	min-width: 360px;
+	bottom: 0;
+	color: #ffffff;
+	position: absolute;
 	border: 1px solid #ffffff;
-    border-right:  0px;
-    border-left: 0px;
-    border-bottom: 0px;
+	border-right:  0px;
+	border-left: 0px;
+	border-bottom: 0px;
 }
 input[type=number] {
 	text-align: center;
@@ -93,22 +97,24 @@ input[type=number] {
 	width: 100%;
 	min-width: 360px;
 	display: table-cell;
-    vertical-align: middle; 
-    border-right:  0px;
-    border-left: 0px;
+	vertical-align: middle; 
+	border-right:  0px;
+	border-left: 0px;
 }
 .enter-number input[type=number]::-webkit-inner-spin-button, 
 .enter-number input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+	-webkit-appearance: none; 
+	margin: 0; 
 }
 .enter-number input::placeholder{
 	font-size: 20px;
 }
-
+.mobile-space {
+	height: 0px;
+}
 @media ( max-width: 360px ) {
 	main .title-image img { 
 		width: 360px;
- 	 }
+	}
 
 }

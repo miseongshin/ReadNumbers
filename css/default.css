@@ -7,12 +7,15 @@
   footer { 
   	position: relative; 
   	width: auto; 
-    color: red;
   }
+
    body {
   	width: auto; 
   }
 
+  .mobile-space {
+  	height: 200px;
+  }
 }
 
 .table {
