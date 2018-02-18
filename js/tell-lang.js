@@ -38,7 +38,7 @@ var $tellLang = {
         ,
         "这个网站是<a href='https://howsecureismypassword.net'>安全是我的密码?</a>的克隆网站。" +
         "它是作为<a href='https://github.com/CloneProject'> CLONE PROJECT </a>的一部分创建的，用于学习。" +
-        "<br>在2017年12月18日 - 2018年1月18日由<a href='https://miseongshin.github.io/'> 申美星 </a>创建"
+        "<br><a href='https://miseongshin.github.io/'> 申美星 </a>创建, 在2017年12月18日 - 2018年2月24日由"
         ]
     },
     langUnitArr: {
@@ -74,6 +74,7 @@ var $tellLang = {
         var lang = navigator.language || navigator.userLanguage;
         var num = $tellLang.lang[lang.substring(0, 2)];
         if (typeof num == "undefined") {
+            alert("Not supporting the language of your browser, We provide in English.");
             num = 1;
         }
         return num;

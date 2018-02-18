@@ -1,16 +1,53 @@
 var $tell = {
 	color: {
-		darks: ["376a82", "c23333", "db7d3a", "378241"],
-		lights: ["afc3cd", "e7adad", "f1cbb0", "afcdb3"]
+		darks: ['CD1039','801825','FFB400','1E90FF','96A5FF'
+		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
+		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
+		,'0000CD','00008C','483D8B','69','3DFF92'
+		,'55EE94','66CDAA','241','80E12A','5.2E+253'
+		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
+		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
+		,'0000CD','00008C','483D8B','69','3DFF92'
+		,'55EE94','66CDAA','241','80E12A','5.2E+253'
+		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
+		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
+		,'0000CD','00008C','483D8B','69','3DFF92'
+		,'55EE94','66CDAA','241','80E12A','5.2E+253'
+		,'64CD3C','13C7A3','46B4B4','20B2AA','5F9EA0'],
+		lights: ['E6749D','FFACAA','FFFA82','1E90FF','96A5FF'
+		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
+		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
+		,'0000CD','00008C','483D8B','69','3DFF92'
+		,'55EE94','66CDAA','241','80E12A','5.2E+253'
+		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
+		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
+		,'0000CD','00008C','483D8B','69','3DFF92'
+		,'55EE94','66CDAA','241','80E12A','5.2E+253'
+		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
+		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
+		,'0000CD','00008C','483D8B','69','3DFF92'
+		,'55EE94','66CDAA','241','80E12A','5.2E+253'
+		,'64CD3C','13C7A3','46B4B4','20B2AA','5F9EA0']
 	},
 	bindAll: function() {
-		$(document).on("keyup", "input[type=number]", function(e) {
-			if ($tell.isNotNumKey(event)) {
-				ENTER.value = ENTER.value.replace(/[^0-9]/g, "");
 
-				return false;
+		$(document).on("keyup", "input[type=number]", function(e) {
+			var $ENTER = $("#ENTER");
+			var enterValue = $ENTER.val();
+
+			var regex = /[^0-9]/g;
+			if ($tell.isNotNumKey(e) || regex.test(enterValue) ) {
+				alert("Please, Press Only Number.");
+				enterValue = enterValue.slice(0,-1);
+				$ENTER.val(enterValue);
+			}else if (enterValue.length > 69) {
+				alert("Too Long To Read");
+				enterValue = enterValue.substring(0,71);
+				$ENTER.val(enterValue);
 			}
 			$tell.changedNum();
+			var moveOffset = $("header").offset();
+			$('html, body').animate({scrollTop : moveOffset.top}, 700);
 		});
 
 		$(document).on("change", ".1st-lang-select", function(e) {
@@ -26,14 +63,8 @@ var $tell = {
 		$tell.init();
 	},
 	changedNum: function() {
-		enterLength = $("#ENTER").val().trim().length;
-		if (enterLength == 0) {
-			$("main .title-image img").show();
-			$("header .title-image img").hide();
-		} else {
-			$("main .title-image img").hide();
-			$("header .title-image img").show();
-		}
+		$tell.setDisplay();
+		var enterLength = $("#ENTER").val().trim().length;
 		$tell.setColor(enterLength)
 		$tell.getEnterOutNum();
 	},
@@ -179,7 +210,7 @@ var $tell = {
  	event = event || window.event;
  	var keyID = $tell.getKeyNum(event);
 
- 	if ((keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8) {
+ 	if ((keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID==229) {
  		return false;
  	} else {
  		return true;
@@ -187,52 +218,54 @@ var $tell = {
  },
  getKeyNum: function(event) {
  	var keyID = (event.which) ? event.which : event.keyCode;
-        $(".mobile-space").text($(".mobile-space").text()+"|"+keyID);
-        return keyID;
-   },
-   setResultView: function() {
-/*          document.getElementsByClassName("output")[0].style.display = 'block';
-          document.getElementsByClassName("output")[0].style.display = 'block';
-          document.getElementsByClassName("other-section")[0].style.display = 'block';*/
-     },
-     setColor: function(length) {
-     	var darkColor;
-     	var lightColor;
+ 	return keyID;
+ },
+ setResultView: function() {
 
-     	if (length < 4) {
-     		darkColor = "#" + $tell.color.darks[length];
-     		lightColor = "#" + $tell.color.lights[length];
+ },
+ setColor: function(length) {
 
-     	} else {
+ 	var colorNum = Math.floor(length/3);
+ 	var darkColor = $tell.color.darks[colorNum];
+ 	var lightColor = $tell.color.lights[colorNum];
 
-     	}
+ 	$(".dark-color").css("backgroundColor" , "#"+darkColor);
+ 	$(".light-color").css("backgroundColor" ,"#"+lightColor);
 
-     	$(".dark-color").css("backgroundColor" , darkColor);
-     	$(".light-color").css("backgroundColor" , lightColor);
+ 	$tell.setResultView();
+ },
+ setUpSiteView: function(siteLangNum) {
+ 	$(".1st-lang-select").val(siteLangNum);
+ 	if (siteLangNum == 1) {
+ 		$(".2nd-lang-select").val(0);
+ 	} else {
+ 		$(".2nd-lang-select").val(1);
+ 	}
 
-     	$tell.setResultView();
-     },
-     setUpSiteView: function(siteLangNum) {
-     	$(".1st-lang-select").val(siteLangNum);
-     	if (siteLangNum == 1) {
-     		$(".2nd-lang-select").val(0);
-     	} else {
-     		$(".2nd-lang-select").val(1);
-     	}
+ 	$(".1st-lang-select option[value=" + siteLangNum + "]").hide();
+ 	$(".1st-lang-select option[value!=" + siteLangNum + "]").show();
+ 	$(".2nd-lang-select option[value=" + siteLangNum + "]").hide();
+ 	$(".2nd-lang-select option[value!=" + siteLangNum + "]").show();
 
-     	$(".1st-lang-select option[value=" + siteLangNum + "]").hide();
-     	$(".1st-lang-select option[value!=" + siteLangNum + "]").show();
-     	$(".2nd-lang-select option[value=" + siteLangNum + "]").hide();
-     	$(".2nd-lang-select option[value!=" + siteLangNum + "]").show();
-
-     	$tellLang.setSiteLang(siteLangNum);
-     },
-     init: function() {
+ 	$tellLang.setSiteLang(siteLangNum);
+ },
+ setDisplay : function(){
+ 	var enterLength = $("#ENTER").val().trim().length;
+ 	if (enterLength == 0) {
+ 		$("main .title-image img").show();
+ 		$("header .title-image img").hide();
+ 		$(".number-infomation").hide();
+ 	} else {
+ 		$("main .title-image img").hide();
+ 		$("header .title-image img").show();
+ 		$(".number-infomation").show();
+ 	}
+ },
+ init: function() {
         //색상 초기화
         $tell.setColor(0);
         //디자인 초기화
-        $("main .title-image img").show();
-        $("header .title-image img").hide();
+        $tell.setDisplay();
         //읽기 셀렉트 박스 초기화
         var siteLangNum = $tellLang.getSiteLang();
         $tell.setUpSiteView(siteLangNum);
