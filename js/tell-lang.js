@@ -91,11 +91,16 @@ var $tellLang = {
 
     }
 
+    if ($("footer").html()==$tellLang.info.footerText[num]) {
+        return false;
+    } 
     if (num ==1 ) {
         comment1 = "in";
     }else{
         comment1 = "";
     }
+
+    if (comment1) {} else {}
     $("header .comment1").text(comment1);
     $("header .comment2").text($tellLang.info.comment[num]);
     $(".title-image>img").attr('src',imagePath);

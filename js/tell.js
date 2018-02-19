@@ -1,33 +1,29 @@
 var $tell = {
-	color: {
-		darks: ['CD1039','801825','FFB400','1E90FF','96A5FF'
-		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
-		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
-		,'0000CD','00008C','483D8B','69','3DFF92'
-		,'55EE94','66CDAA','241','80E12A','5.2E+253'
-		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
-		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
-		,'0000CD','00008C','483D8B','69','3DFF92'
-		,'55EE94','66CDAA','241','80E12A','5.2E+253'
-		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
-		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
-		,'0000CD','00008C','483D8B','69','3DFF92'
-		,'55EE94','66CDAA','241','80E12A','5.2E+253'
-		,'64CD3C','13C7A3','46B4B4','20B2AA','5F9EA0'],
-		lights: ['E6749D','FFACAA','FFFA82','1E90FF','96A5FF'
-		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
-		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
-		,'0000CD','00008C','483D8B','69','3DFF92'
-		,'55EE94','66CDAA','241','80E12A','5.2E+253'
-		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
-		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
-		,'0000CD','00008C','483D8B','69','3DFF92'
-		,'55EE94','66CDAA','241','80E12A','5.2E+253'
-		,'86A5FF','6495ED','0078FF','0064FF','0000FF'
-		,'41690','0064CD','5A5AFF','7B68EE','6A5ACD'
-		,'0000CD','00008C','483D8B','69','3DFF92'
-		,'55EE94','66CDAA','241','80E12A','5.2E+253'
-		,'64CD3C','13C7A3','46B4B4','20B2AA','5F9EA0']
+	color: {//http://paletton.com/#uid=70f0u0kllll9jvNfkqzrmg7-7aT
+		darks: ['EBB08F'
+		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'//0~10 /90~100
+		,'58A958','529E66','4F9762','635492','665391','695290'//180~190/270~280
+		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
+		,'58A958','529E66','4F9762','635492','665391','695290'
+		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
+		,'58A958','529E66','4F9762','635492','665391','695290'
+		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
+		,'58A958','529E66','4F9762','635492','665391','695290'
+		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
+		,'58A958','529E66','4F9762','635492','665391','695290'
+		,'64CD3C','13C7A3','46B4B4','20B2AA','5F9EA0','5F9EA0','5F9EA0'],
+		lights: ['FFECE1'
+		,'FDB4B4','FDC5B4','FDC9B4','FDF1B4','FDF3B4','FDF5B4'
+		,'90CB90','86BD95','80B597','8C81AE','8E80AD','907FAD'
+		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
+		,'58A958','529E66','4F9762','635492','665391','695290'
+		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
+		,'58A958','529E66','4F9762','635492','665391','695290'
+		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
+		,'58A958','529E66','4F9762','635492','665391','695290'
+		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
+		,'58A958','529E66','4F9762','635492','665391','695290'
+		,'64CD3C','13C7A3','46B4B4','20B2AA','5F9EA0','5F9EA0','5F9EA0']
 	},
 	bindAll: function() {
 
@@ -40,7 +36,7 @@ var $tell = {
 				alert("Please, Press Only Number.");
 				enterValue = enterValue.slice(0,-1);
 				$ENTER.val(enterValue);
-			}else if (enterValue.length > 69) {
+			}else if (enterValue.length > 68) {
 				alert("Too Long To Read");
 				enterValue = enterValue.substring(0,71);
 				$ENTER.val(enterValue);
@@ -225,7 +221,7 @@ var $tell = {
  },
  setColor: function(length) {
 
- 	var colorNum = Math.floor(length/3);
+ 	var colorNum = Math.floor(length);
  	var darkColor = $tell.color.darks[colorNum];
  	var lightColor = $tell.color.lights[colorNum];
 
