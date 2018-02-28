@@ -21,31 +21,36 @@
 <body class="dark-color">
     <header>
         <section class="title-image">
-            <img src="./image/title/number-title-header-en.png" alt="Read Numbers Title" style="height:60px;float:left;">
+            <img src="" alt="Read Numbers Title" style="height:60px;float:left;display: none;">
             <div class="header-select">
-                <span>in</span>
-                <select class="bg-white 1st-lang-select">
-                    <option value="0" class="korean">Korean</option>
+                <span class="base-read">
+                    <button id="btn-0" value="" class=" dark-color on "></button>
+                </span>
+                <span class="add-read">
+                    <span class="and">and</span>
+                    <button id="btn-1" value="" class=" light-color "></button>
+                    <button id="btn-2" value="" class=" light-color "></button>
+                    <button id="btn-3" value="" class=" light-color "></button>
+                </span>
+            </div>
+            <div>
+              <!--   <button>숫자 읽기 연습</button> -->
+            </div>
+<!--             <div class="header-select">
+                <span class="and">and</span>
+                <select class="bg-white ">
+                    <option value="1" class="english">사이트 언어</option>
                     <option value="1" class="english">English</option>
+                    <option value="0" class="korean">Korean</option>
                     <option value="2" class="japanese">Japanese</option>
                     <option value="3" class="chinese">Chinese</option>
                 </select>
-            </div>
-            <div class="header-select">
-                <span>and</span>
-                <select class="bg-white 2nd-lang-select">
-                    <option value="1" class="english">English</option>
-                    <option value="0" class="korean">Korean</option>
-                    <option value="2" class="japanese">Japanese</option>
-                    <option value="3" class="chinese">Chinese</option>
-                </select>
-            </div>
-
+            </div> -->
         </section>
     </header>
     <main>
         <section class="title-image">
-            <img src="./image/title/number-title-header-en.png">
+            <img src="">
         </section>
         <section class="out-number">
             <h1></h1>
@@ -56,9 +61,15 @@
         <section class="out-read-lang2">
             <h1></h1>
         </section>
+        <section class="out-read-lang3">
+            <h1></h1>
+        </section>
+        <section class="out-read-lang4">
+            <h1></h1>
+        </section>
         <section class="enter-number">
             <input type="number" step="100" data-a-dec="," class="light-color ENTER" autofocus="autofocus"
-            placeholder="Enter The Number." id="ENTER" value="" min="0" max="9" style="ime-mode: disabled;">
+            placeholder="" id="ENTER" value="" min="0" max="9" style="ime-mode: disabled;">
         </section>
         <section class="space">
         </section>
@@ -69,9 +80,6 @@
         </section>
     </main>
     <footer>
-        This site is a clone site of <a href="https://howsecureismypassword.net">HOW SECURE IS MY PASSWORD?</a>.
-        <br> It was created as part of a <a href="https://github.com/CloneProject">CLONE PROJECT</a> for a studing.
-        <br> Created by miseongShin in Dec 18, 2017 - Jan 18, 2018
     </footer>
     <script type="text/javascript" src="./js/tell.js"></script>
 </body>

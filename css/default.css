@@ -5,7 +5,8 @@
 
 @media ( max-width: 712px ) {
 	footer { 
-		position: relative; 
+		position: absolute;
+		bottom: 0px; 
 		width: auto; 
 	}
 
@@ -29,26 +30,4 @@
 
 .table-cell.rowspan {
 	column-count: 2;
-}
-
-fieldset{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	position: relative;
-	&:first-child input {
-		border-radius: 4px 4px 0 0;
-	}
-	&:last-child input {
-		border-radius: 0 0 4px 4px;
-		box-shadow: 0 2px 0 rgba(0,0,0,0.15);
-	}
-	& + fieldset { border-top: 1px solid #ddd; }
-}
-fieldset label {
-	position: absolute;
-	vertical-align: center;
-	top: 20px;
-	transform: translate3d(0, 0, 0);
-	transition: all 0.2s ease-in-out;
 }

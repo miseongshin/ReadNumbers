@@ -15,7 +15,23 @@
 }
 
 .bg-white{
+	color: #000000;
 	background-color: #ffffff;
+}
+button {
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	display: inline-block;
+    zoom: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 /*title CSS*/
 header img {
@@ -34,9 +50,9 @@ header .header-select{
 	height:30px;
 }
 main .title-image img {
+	display: inline-block;
 	height:auto;
 	width: 100%;
-	max-width: 800px;
 }
 
 /*fixed CSS*/

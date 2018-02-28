@@ -47,9 +47,10 @@ var $tell = {
 		});
 
 		$(document).on("change", ".1st-lang-select", function(e) {
-			var siteLangNum = $(".1st-lang-select").val();
+			var siteLangNum = $("#btn-0").attr("value");
 			$tell.setUpSiteView(siteLangNum);
 			$tell.changedNum();
+			$('#ENTER').focus();
 		});
 
 		$(document).on("change", ".2st-lang-select", function(e) {
@@ -69,15 +70,15 @@ var $tell = {
 		var enterArr = $tell.getEnterArr(3, enterText);
 		$(".out-number h1").html(enterArr.toString());
 
-		var lang1 =  $(".1st-lang-select").val();
+		var lang1 = $("#btn-0").attr("value");
 		var readArr = $tell.getReadArr($tellLang.langUnitSize[lang1], enterText, lang1);
 		var readText = $tell.getArrToText(readArr);
 		$(".out-read-lang1 h1").html(readText);
 
-		var lang2 = $(".2nd-lang-select option:selected").val();
+/*		var lang2 = $(".2nd-lang-select option:selected").val();
 		var readArr2 = $tell.getReadArr($tellLang.langUnitSize[lang2], enterText, lang2);
 		var readText2 = $tell.getArrToText(readArr2);
-		$(".out-read-lang2 h1").html(readText2);
+		$(".out-read-lang2 h1").html(readText2);*/
 	},
 	getArrToText: function(readArr) {
 		var readText = "";
@@ -231,17 +232,24 @@ var $tell = {
  	$tell.setResultView();
  },
  setUpSiteView: function(siteLangNum) {
- 	$(".1st-lang-select").val(siteLangNum);
- 	if (siteLangNum == 1) {
- 		$(".2nd-lang-select").val(0);
- 	} else {
- 		$(".2nd-lang-select").val(1);
+ 	var lang = ['korean','english','japanese','chinese'];
+ 	var btnNum=1;
+ 	for (var i = 0; i < lang.length; i++) {
+ 		$("#btn-0").removeClass(lang[i]); 
+ 		$("#btn-1").removeClass(lang[i]); 
+ 		$("#btn-2").removeClass(lang[i]); 
+ 		$("#btn-3").removeClass(lang[i]); 
  	}
-
- 	$(".1st-lang-select option[value=" + siteLangNum + "]").hide();
- 	$(".1st-lang-select option[value!=" + siteLangNum + "]").show();
- 	$(".2nd-lang-select option[value=" + siteLangNum + "]").hide();
- 	$(".2nd-lang-select option[value!=" + siteLangNum + "]").show();
+ 	for (var i = 0; i < lang.length; i++) {
+ 		if (siteLangNum == i ) {
+ 			$("#btn-0").addClass(lang[i]);
+ 			$("#btn-0").attr("value",i);
+ 		} else {
+  			$("#btn-"+btnNum).addClass(lang[i]);
+ 			$("#btn-"+btnNum).attr("value",i);		
+ 			btnNum++;	
+ 		}
+ 	}
 
  	$tellLang.setSiteLang(siteLangNum);
  },
@@ -262,7 +270,7 @@ var $tell = {
         $tell.setColor(0);
         //디자인 초기화
         $tell.setDisplay();
-        //읽기 셀렉트 박스 초기화
+        //읽기 버튼 초기화
         var siteLangNum = $tellLang.getSiteLang();
         $tell.setUpSiteView(siteLangNum);
 
