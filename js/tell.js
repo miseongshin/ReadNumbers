@@ -1,29 +1,31 @@
 var $tell = {
-	color: {//http://paletton.com/#uid=70f0u0kllll9jvNfkqzrmg7-7aT
-		darks: ['EBB08F'
-		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'//0~10 /90~100
-		,'58A958','529E66','4F9762','635492','665391','695290'//180~190/270~280
-		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
-		,'58A958','529E66','4F9762','635492','665391','695290'
-		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
-		,'58A958','529E66','4F9762','635492','665391','695290'
-		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
-		,'58A958','529E66','4F9762','635492','665391','695290'
-		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
-		,'58A958','529E66','4F9762','635492','665391','695290'
-		,'64CD3C','13C7A3','46B4B4','20B2AA','5F9EA0','5F9EA0','5F9EA0'],
-		lights: ['FFECE1'
-		,'FDB4B4','FDC5B4','FDC9B4','FDF1B4','FDF3B4','FDF5B4'
-		,'90CB90','86BD95','80B597','8C81AE','8E80AD','907FAD'
-		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
-		,'58A958','529E66','4F9762','635492','665391','695290'
-		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
-		,'58A958','529E66','4F9762','635492','665391','695290'
-		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
-		,'58A958','529E66','4F9762','635492','665391','695290'
-		,'D46262','D47A62','D48B62','D4C26E','D4C562','D4C86E'
-		,'58A958','529E66','4F9762','635492','665391','695290'
-		,'64CD3C','13C7A3','46B4B4','20B2AA','5F9EA0','5F9EA0','5F9EA0']
+	color: {//http://paletton.com/#uid=70f0u0kllll25TkbJuIuXbYUK2z
+		darks: ['7CC47C'//180
+		,'F59B9B','F5A59B','F5AE9B','F5E59B','F5E89B','F5EA9B'//0~10 /90~100
+		,'74B786','6FAE8A','6AA88D','7F72A8','8171A8','8470A7'//185~195/270~280
+		,'F5B59B','F5BA9B','F5BF9B','F5ED9B','F5EF9B','F5F29B'//15
+		,'66A290','629B92','5D9393','866EA6','896DA5','8C6CA4'
+		,'F5C49B','F5C89B','F5CB9B','F5F59B','ECF299','E5EF97'//30
+		,'628D97','65899B','68869D','8F6BA3','9369A2','9867A1'
+		,'F5CE9B','F5D19B','F5D49B','DDEC96','D7EA94','D0E792'//45
+		,'6A83A0','6C81A2','6E7EA4','9F659F','AF6FA3','BB77A5'
+		,'F5D79B','F5D99B','F5DC9B','F5D79B','F5D99B','F5DC9B'//60
+		,'707CA6','7379A8','7676AB','C47CA4','CC81A5','D486A4'
+		,'F5DE9B','F5E19B','F5E39B','F5DE98','F5E198','F5E39B'//
+		,'7974AA','7C73A9'],
+		lights: ['E3F3E3'
+		,'FFEEEE','FFF0EE','FFF2EE','FFFCEE','FFFDEE','FFFDEE'
+		,'E0F0E4','E0F0E4','E0F0E4','E2DEEC','E2DEEC','E3DEEC'
+		,'FFF3EE','FFF4EE','FFF5EE','FFFDEE','FFFEEE','FFFEEE'
+		,'DBEAE6','D9E9E6','D8E7E7','E3DDEB','E4DDEB','E5DDEB'
+		,'FFF6EE','FFF7EE','FFF7EE','FFFFEE','FDFFEE','FCFEED'
+		,'D9E5E8','DAE4E9','DBE3E9','E6DCEB','ECDCEA','E8DBEA'
+		,'FFF8EE','FFF8EE','FFF9EE','FAFDEC','F9FCEC','F7FCEB'
+		,'DCE2EA','DCE2EA','DDE1EB','EADAEA','EEDEEB','F1E1EB'
+		,'FFF9EE','FFFAEE','FFFAEE','FFF9EE','FFFAEE','FFFAEE'
+		,'DEE1EB','DFE0EC','E0E0ED','F3E3EC','F5E5EC','F7E7ED'
+		,'FFFBEE','FFFBEE','FFFCEE','FFFBEE','FFFBEE','FFFCEE'
+		,'E0DFEC','E1DFEC']
 	},
 	bindAll: function() {
 
@@ -35,10 +37,6 @@ var $tell = {
 			if ($tell.isNotNumKey(e) || regex.test(enterValue) ) {
 				alert("Please, Press Only Number.");
 				enterValue = enterValue.slice(0,-1);
-				$ENTER.val(enterValue);
-			}else if (enterValue.length > 68) {
-				alert("Too Long To Read");
-				enterValue = enterValue.substring(0,71);
 				$ENTER.val(enterValue);
 			}
 			$tell.changedNum();
@@ -159,6 +157,10 @@ var $tell = {
            }
 
       } else {
+      	if (enterText.length > 72) {
+      		langArr[0] = $tellLang.toolong[lang];
+      		return langArr;
+      	} 
             //한중일 
             for (var i = enterArr.length - 1; i >= 0; i--) {
             	var inputNum = enterArr[i];
@@ -228,7 +230,6 @@ var $tell = {
 
  	$(".dark-color").css("backgroundColor" , "#"+darkColor);
  	$(".light-color").css("backgroundColor" ,"#"+lightColor);
-
  	$tell.setResultView();
  },
  setUpSiteView: function(siteLangNum) {
@@ -259,10 +260,12 @@ var $tell = {
  		$("main .title-image img").show();
  		$("header .title-image img").hide();
  		$(".number-infomation").hide();
+ 		$("footer").css({"position":"absolute","bottom":"0px"});
  	} else {
  		$("main .title-image img").hide();
  		$("header .title-image img").show();
  		$(".number-infomation").show();
+ 		$("footer").css({"position":"relative","bottom":""});
  	}
  },
  init: function() {

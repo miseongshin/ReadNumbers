@@ -55,6 +55,12 @@ var $tellLang = {
     lang20Arr : {
         1 : ["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"]
     },
+    toolong : {
+        0 : "숫자가 너무 길어서 읽을 수 없습니다. " ,
+        1 : "", 
+        2 : "",
+        3 : ""
+    },
     bindAll: function() {
 
         $tellLang.init();
@@ -75,7 +81,7 @@ var $tellLang = {
     setSiteLang: function(num) {
         var imagePath;
 
-console.log(num);    
+   
     if ($("footer").html()==$tellLang.info.footerText[num]) {
         return false;
 }
@@ -83,7 +89,6 @@ console.log(num);
 
 
     $("header .and").text($tellLang.info.and[num]);
-    $(".title-image>img").attr('src', "./image/title/number-title-header-"+Object.keys($tellLang.lang)[num]+".png");
     $(".korean").text($tellLang.info.langKo[num]);
     $(".english").text($tellLang.info.langEn[num]);
     $(".japanese").text($tellLang.info.langJp[num]);
@@ -91,6 +96,17 @@ console.log(num);
     $("footer").html($tellLang.info.footerText[num]);
     $("#ENTER").attr("placeholder", $tellLang.info.placeholder[num]);
 
+
+/*    var $titleImage = $("main .title-image>img") ;
+    if ($titleImage.attr('src') =="") {
+        $titleImage.css('height', 0);
+        $titleImage.attr('src', "./image/title/number-title-header-"+Object.keys($tellLang.lang)[num]+".png");
+        var maxWidth = $titleImage.css('max-width');
+        $titleImage.animate({width: maxWidth}, 1000);
+    } else {
+       
+    }*/
+ $(".title-image>img").attr('src', "./image/title/number-title-header-"+Object.keys($tellLang.lang)[num]+".png");
 
 
 },

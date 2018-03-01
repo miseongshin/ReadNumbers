@@ -19,23 +19,11 @@
 	background-color: #ffffff;
 }
 button {
-	border-radius: 4px;
-	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-	display: inline-block;
-    zoom: 1;
-    white-space: nowrap;
-    vertical-align: middle;
-    text-align: center;
-    cursor: pointer;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+	max-height: 20px;
 }
 /*title CSS*/
 header img {
-	height: 60px;
+	height: 65px;
 	width: auto;
 }
 
@@ -47,18 +35,21 @@ header .down-line {
 }
 header .header-select{
 	display: inline;
-	height:30px;
+
 }
 main .title-image img {
+	height: auto;
+	max-width: 700px;
 	display: inline-block;
-	height:auto;
 	width: 100%;
+	
 }
 
 /*fixed CSS*/
 
 body{
 	width: 100%;
+	height: auto;
 	margin: 0px;
 	text-align: center;
 }
@@ -66,7 +57,6 @@ body{
 header{
 	display: block;
 	position: relative;
-	height: 60px;
 	width: 100%;
 	min-width: 360px;
 	background: #000000;
@@ -93,6 +83,7 @@ header .table {
 main{
 	position: relative;
 	width: 100%;
+	height: auto;
 	text-align: center;
 	margin: 0px;
 }
@@ -102,8 +93,7 @@ footer {
 	width: 100%;
 	min-width: 360px;
 	color: #ffffff;
-	position: absolute;
-	bottom: 0px;
+	position: relative;
 	border: 2px solid #ffffff;
 	border-right:  0px;
 	border-left: 0px;
@@ -131,7 +121,7 @@ input[type=number] {
 	font-size: 20px;
 }
 .number-infomation{
-	display: inline-block;
+	display: block;
 	text-align: center;
 	position: relative;
 	height: 300px;
@@ -145,6 +135,11 @@ input[type=number] {
 	position: relative;
 	width: 100%;
 	min-height: 40px;
+}
+table {
+	display: inline-block;
+    border: 1px solid #ddd;
+    padding: 8px;
 }
 @media ( max-width: 360px ) {
 	main .title-image img { 
