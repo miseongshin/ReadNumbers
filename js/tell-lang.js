@@ -16,14 +16,15 @@ var $tellLang = {
     },
     info: {
         and: ["그리고", "and", "と", "和"]
-        ,selReadLang: ["숫자 읽기 언어 : ", "Numeric reading language : ", "数字を読む言語 : ", "数字阅读语言："]
+        ,selReadLang: ["숫자 읽기 언어", "Numeric reading language : ", "数字を読む言語 : ", "数字阅读语言："]
         ,tellNumTitle: ["숫자 좀 말해줘요.", "TELL ME THIS NUMBER", "この番号を言ってくれ", "告诉我这个数字"]
         ,enterNum: ["숫자 입력.", "Enter The Number.", "番号を入力", "输入号码"]
         ,langKo: ["한국어", "KOREAN", "韓国", "韩国语"]
         ,langEn: ["영어", "English", "アメリカ", "英语"]
         ,langJp: ["일본어", "Japanese", "日本", "日本语"]
         ,langZh: ["중국어", "Chinese", "中国", "中国语"]
-        ,placeholder:["숫자를 입력해주세요.", "Enter The Number", "番号を入力してください。","输入号码。"]
+        ,placeholder:["숫자를 입력해주세요. 예) 1234", "Enter The Number ex) 1234", "番号を入力してください。 例) 1234","输入号码。 例子) 1234"]
+        ,headerInfo : ["다국어 숫자읽기, 숫자를 입력하면 설명이 나옵니다."]
         ,footerText: [
         "<br><a href='https://miseongshin.github.io/'>신 미성</a> 제작 2017년 12월 - 2018년 3월"
         ,
@@ -66,8 +67,20 @@ var $tellLang = {
         $tellLang.init();
     },
     setLanguage: function() {
-        var num = $tellLang.getSiteLang();
-        $tellLang.setSiteLang(num);
+        var langNum = $tellLang.getSiteLang();
+        var lang = ['korean','english','japanese','chinese'];
+        var btnNum = 2;
+        for (var i = 1; i < lang.length+1; i++) {
+            if (i==langNum) {
+                $("btn-1").removeClass(lang[i]).addClass(lang[langNum]);
+                $("#btn-1").attr("value",langNum); 
+            } else {
+                $("#btn-"+btnNum).removeClass(lang[i]).addClass(lang[i]);
+                $("#btn-"+btnNum).attr("value",i);      
+                btnNum++;   
+            }
+        }
+        $tellLang.setSiteLang(langNum);
     },
     getSiteLang : function(){
         var lang = navigator.language || navigator.userLanguage;
@@ -79,22 +92,20 @@ var $tellLang = {
         return num;
     },
     setSiteLang: function(num) {
-        var imagePath;
 
-   
-    if ($("footer").html()==$tellLang.info.footerText[num]) {
-        return false;
-}
+        if ($("footer").html()==$tellLang.info.footerText[num]) {
+            return false;
+        }
 
+        $("#1stLang").val(num);
 
-
-    $("header .and").text($tellLang.info.and[num]);
-    $(".korean").text($tellLang.info.langKo[num]);
-    $(".english").text($tellLang.info.langEn[num]);
-    $(".japanese").text($tellLang.info.langJp[num]);
-    $(".chinese").text($tellLang.info.langZh[num]);
-    $("footer").html($tellLang.info.footerText[num]);
-    $("#ENTER").attr("placeholder", $tellLang.info.placeholder[num]);
+        $("header .and").text($tellLang.info.and[num]);
+        $(".korean").text($tellLang.info.langKo[num]);
+        $(".english").text($tellLang.info.langEn[num]);
+        $(".japanese").text($tellLang.info.langJp[num]);
+        $(".chinese").text($tellLang.info.langZh[num]);
+        $("footer").html($tellLang.info.footerText[num]);
+        $("#ENTER").attr("placeholder", $tellLang.info.placeholder[num]);
 
 
 /*    var $titleImage = $("main .title-image>img") ;
@@ -106,7 +117,7 @@ var $tellLang = {
     } else {
        
     }*/
- $(".title-image>img").attr('src', "./image/title/number-title-header-"+Object.keys($tellLang.lang)[num]+".png");
+    $(".title-image>img").attr('src', "./image/title/number-title-header-"+Object.keys($tellLang.lang)[num]+".png");
 
 
 },

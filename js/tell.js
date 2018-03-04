@@ -45,7 +45,7 @@ var $tell = {
 		});
 
 		$(document).on("change", ".1st-lang-select", function(e) {
-			var siteLangNum = $("#btn-0").attr("value");
+			var siteLangNum = $("#1stLang").val();
 			$tell.setUpSiteView(siteLangNum);
 			$tell.changedNum();
 			$('#ENTER').focus();
@@ -68,7 +68,7 @@ var $tell = {
 		var enterArr = $tell.getEnterArr(3, enterText);
 		$(".out-number h1").html(enterArr.toString());
 
-		var lang1 = $("#btn-0").attr("value");
+		var lang1 = $("#1stLang").val();
 		var readArr = $tell.getReadArr($tellLang.langUnitSize[lang1], enterText, lang1);
 		var readText = $tell.getArrToText(readArr);
 		$(".out-read-lang1 h1").html(readText);
@@ -233,25 +233,6 @@ var $tell = {
  	$tell.setResultView();
  },
  setUpSiteView: function(siteLangNum) {
- 	var lang = ['korean','english','japanese','chinese'];
- 	var btnNum=1;
- 	for (var i = 0; i < lang.length; i++) {
- 		$("#btn-0").removeClass(lang[i]); 
- 		$("#btn-1").removeClass(lang[i]); 
- 		$("#btn-2").removeClass(lang[i]); 
- 		$("#btn-3").removeClass(lang[i]); 
- 	}
- 	for (var i = 0; i < lang.length; i++) {
- 		if (siteLangNum == i ) {
- 			$("#btn-0").addClass(lang[i]);
- 			$("#btn-0").attr("value",i);
- 		} else {
-  			$("#btn-"+btnNum).addClass(lang[i]);
- 			$("#btn-"+btnNum).attr("value",i);		
- 			btnNum++;	
- 		}
- 	}
-
  	$tellLang.setSiteLang(siteLangNum);
  },
  setDisplay : function(){
@@ -260,11 +241,13 @@ var $tell = {
  		$("main .title-image img").show();
  		$("header .title-image img").hide();
  		$(".number-infomation").hide();
+		$(".facebook-like").hide();
  		$("footer").css({"position":"absolute","bottom":"0px"});
  	} else {
  		$("main .title-image img").hide();
  		$("header .title-image img").show();
  		$(".number-infomation").show();
+ 		$(".facebook-like").hide();
  		$("footer").css({"position":"relative","bottom":""});
  	}
  },

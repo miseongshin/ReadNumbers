@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang=ko>
-<meta charset=UTF-8>
-<title>Growth Space! :: Read Numbers</title>
-
 <head>
+    <meta charset=UTF-8>
+    <title>Growth Space! :: Read Numbers</title>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="https://readnumbers.github.io/" />
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="Growth Space! :: Read Numbers">
     <meta property="og:description" content="Reading Numbers in English, Korean, and Chinese">
-    <meta property="og:image" content="./image/tell-header-title-en.png">
+    <meta property="og:image" content="./image/growthSpace-ReadNumber.png">
     <link rel="stylesheet" type="text/css" href="./css/tell.css">
     <link rel="stylesheet" type="text/css" href="./css/tell-font.css">
     <link rel="stylesheet" type="text/css" href="./css/default.css">
@@ -21,31 +22,19 @@
 <body class="dark-color">
     <header>
         <section class="title-image">
-            <img src="" alt="Read Numbers Title" style="display: none;">
+            <img src="" alt="Read Numbers Title" style="display: inline;">
             <div class="header-select">
-                <span class="base-read">
-                    <button id="btn-0" value="" class=" dark-color active " disabled="disabled">한국어</button>
-                </span>
-                <span class="add-read">
-                    <span class="and">and</span>
-                    <button id="btn-1" value="" class=" light-color ">영어</button>
-                    <button id="btn-2" value="" class=" light-color ">일본어</button>
-                    <button id="btn-3" value="" class=" light-color ">중국어</button>
-                </span>
+                <div class="header-info">다국어 숫자읽기, 숫자를 입력하면 설명이 나옵니다. </div>
+                    <div class="btngroup">
+                        <button class="button lang dark-color korean" id="btn-1" value="1">한국어</button>
+                        <button class="button lang light-color english" id="btn-2" value="2">영어</button>
+                        <button class="button lang light-color japanese" id="btn-3" value="3">일본어</button>
+                        <button class="button lang light-color chinese" id="btn-4" value="4">중국어</button>
+                    </div>
+
+<!--                 <button class="btn-white">트레이닝</button>
+                발음 듣기<input class="toggle" type="checkbox" /> -->
             </div>
-            <div>
-              <!--   <button>숫자 읽기 연습</button> -->
-            </div>
-<!--             <div class="header-select">
-                <span class="and">and</span>
-                <select class="bg-white ">
-                    <option value="1" class="english">사이트 언어</option>
-                    <option value="1" class="english">English</option>
-                    <option value="0" class="korean">Korean</option>
-                    <option value="2" class="japanese">Japanese</option>
-                    <option value="3" class="chinese">Chinese</option>
-                </select>
-            </div> -->
         </section>
     </header>
     <main>
@@ -110,12 +99,32 @@
             </table>
             <br>
         </section>
-        <section class="space">
-        </section>
-    </main>
-    <footer>
-    </footer>
-    <script type="text/javascript" src="./js/tell.js"></script>
-</body>
+        <section class="space facebook-like">
+           <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script> 
 
+    <div class="fb-like" 
+    data-href="https://readnumbers.github.io/" 
+    data-layout="standard" 
+    data-action="like" 
+    data-show-faces="true">
+</div>
+</section>
+</main>
+<section class="space">
+</section>
+<footer>
+</footer>
+<input type="hidden" name="enterNumber" value="">
+<input type="hidden" name="tooLongToRead" value="">
+<input type="hidden" id="1stLang" value="1">
+<input type="hidden" id="2ndLang" value="">
+<script type="text/javascript" src="./js/tell.js"></script>
+</body>
 </html>

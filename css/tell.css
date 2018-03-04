@@ -8,16 +8,14 @@
 /*colors CSS */
 .dark-color{
 	background-color: #376a82;
+	color: #ffffff;
 }
 
 .light-color{
 	background-color: #afc3cd;
+	color: #000000;
 }
 
-.bg-white{
-	color: #000000;
-	background-color: #ffffff;
-}
 button {
 	max-height: 20px;
 }
@@ -89,9 +87,8 @@ main{
 }
 footer {
 	background-color: #000000;
-	height: 130px;
+	height: 70px;
 	width: 100%;
-	min-width: 360px;
 	color: #ffffff;
 	position: relative;
 	border: 2px solid #ffffff;
@@ -112,6 +109,9 @@ input[type=number] {
 	border-right:  0px;
 	border-left: 0px;
 }
+.out-number h1{
+	 word-break:break-all;
+}
 .enter-number input[type=number]::-webkit-inner-spin-button, 
 .enter-number input[type=number]::-webkit-outer-spin-button { 
 	-webkit-appearance: none; 
@@ -124,7 +124,7 @@ input[type=number] {
 	display: block;
 	text-align: center;
 	position: relative;
-	height: 300px;
+	height: auto;
 	width: 100%;
 	max-width: 1000px;
 	border: 2px solid #ffffff;
