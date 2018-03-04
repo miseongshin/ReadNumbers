@@ -15,7 +15,8 @@ var $tellLang = {
         "3" : 4
     },
     info: {
-        and: ["그리고", "and", "と", "和"]
+        headerInfo: ["다국어 숫자읽기. 숫자를 입력하면 설명이 나옵니다.", "Read multilingual numbers. Enter a number to get a description."
+        , "多言語の数を読む.数字を入力すると、説明が出てきます。", "阅读多语种号码。 输入一个数字以获得描述。"]
         ,selReadLang: ["숫자 읽기 언어", "Numeric reading language : ", "数字を読む言語 : ", "数字阅读语言："]
         ,tellNumTitle: ["숫자 좀 말해줘요.", "TELL ME THIS NUMBER", "この番号を言ってくれ", "告诉我这个数字"]
         ,enterNum: ["숫자 입력.", "Enter The Number.", "番号を入力", "输入号码"]
@@ -24,7 +25,6 @@ var $tellLang = {
         ,langJp: ["일본어", "Japanese", "日本", "日本语"]
         ,langZh: ["중국어", "Chinese", "中国", "中国语"]
         ,placeholder:["숫자를 입력해주세요. 예) 1234", "Enter The Number ex) 1234", "番号を入力してください。 例) 1234","输入号码。 例子) 1234"]
-        ,headerInfo : ["다국어 숫자읽기, 숫자를 입력하면 설명이 나옵니다."]
         ,footerText: [
         "<br><a href='https://miseongshin.github.io/'>신 미성</a> 제작 2017년 12월 - 2018년 3월"
         ,
@@ -99,7 +99,7 @@ var $tellLang = {
 
         $("#1stLang").val(num);
 
-        $("header .and").text($tellLang.info.and[num]);
+        $("header .header-info").text($tellLang.info.headerInfo[num]);
         $(".korean").text($tellLang.info.langKo[num]);
         $(".english").text($tellLang.info.langEn[num]);
         $(".japanese").text($tellLang.info.langJp[num]);

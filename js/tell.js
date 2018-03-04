@@ -1,31 +1,19 @@
 var $tell = {
 	color: {//http://paletton.com/#uid=70f0u0kllll25TkbJuIuXbYUK2z
-		darks: ['7CC47C'//180
-		,'F59B9B','F5A59B','F5AE9B','F5E59B','F5E89B','F5EA9B'//0~10 /90~100
-		,'74B786','6FAE8A','6AA88D','7F72A8','8171A8','8470A7'//185~195/270~280
-		,'F5B59B','F5BA9B','F5BF9B','F5ED9B','F5EF9B','F5F29B'//15
-		,'66A290','629B92','5D9393','866EA6','896DA5','8C6CA4'
-		,'F5C49B','F5C89B','F5CB9B','F5F59B','ECF299','E5EF97'//30
-		,'628D97','65899B','68869D','8F6BA3','9369A2','9867A1'
-		,'F5CE9B','F5D19B','F5D49B','DDEC96','D7EA94','D0E792'//45
-		,'6A83A0','6C81A2','6E7EA4','9F659F','AF6FA3','BB77A5'
-		,'F5D79B','F5D99B','F5DC9B','F5D79B','F5D99B','F5DC9B'//60
-		,'707CA6','7379A8','7676AB','C47CA4','CC81A5','D486A4'
-		,'F5DE9B','F5E19B','F5E39B','F5DE98','F5E198','F5E39B'//
-		,'7974AA','7C73A9'],
+		darks: ['7CC47C'
+		,'74B786','6FAE8A','6AA88D','66A290','629B92','5D9393','628D97','65899B','68869D','6A83A0','6C81A2','6E7EA4'
+		,'707CA6','7379A8','7676AB','7F72A8','8171A8','8470A7','866EA6','896DA5','8C6CA4','8F6BA3','9369A2','9867A1'
+		,'9F659F','AF6FA3','BB77A5','C47CA4','CC81A5','D486A4','F59B9B','F5A59B','F5AE9B','F5B59B','F5BA9B','F5BF9B'
+		,'F5C49B','F5C89B','F5CB9B','F5CE9B','F5D19B','F5D49B','F5D79B','F5D99B','F5DC9B','F5DE9B','F5E19B','F5E39B'
+		,'F5E59B','F5E89B','F5EA9B','F5ED9B','F5EF9B','F5F29B','F5F59B','ECF299','E5EF97','DDEC96','D7EA94','D0E792'
+		,'F5D79B','F5D99B','F5DC9B','F5DE98','F5E198','F5E39B','7974AA','7C73A9'],
 		lights: ['E3F3E3'
-		,'FFEEEE','FFF0EE','FFF2EE','FFFCEE','FFFDEE','FFFDEE'
-		,'E0F0E4','E0F0E4','E0F0E4','E2DEEC','E2DEEC','E3DEEC'
-		,'FFF3EE','FFF4EE','FFF5EE','FFFDEE','FFFEEE','FFFEEE'
-		,'DBEAE6','D9E9E6','D8E7E7','E3DDEB','E4DDEB','E5DDEB'
-		,'FFF6EE','FFF7EE','FFF7EE','FFFFEE','FDFFEE','FCFEED'
-		,'D9E5E8','DAE4E9','DBE3E9','E6DCEB','ECDCEA','E8DBEA'
-		,'FFF8EE','FFF8EE','FFF9EE','FAFDEC','F9FCEC','F7FCEB'
-		,'DCE2EA','DCE2EA','DDE1EB','EADAEA','EEDEEB','F1E1EB'
-		,'FFF9EE','FFFAEE','FFFAEE','FFF9EE','FFFAEE','FFFAEE'
-		,'DEE1EB','DFE0EC','E0E0ED','F3E3EC','F5E5EC','F7E7ED'
-		,'FFFBEE','FFFBEE','FFFCEE','FFFBEE','FFFBEE','FFFCEE'
-		,'E0DFEC','E1DFEC']
+		,'E0F0E4','E0F0E4','E0F0E4','DBEAE6','D9E9E6','D8E7E7','D9E5E8','DAE4E9','DBE3E9','DCE2EA','DCE2EA','DDE1EB'
+		,'DEE1EB','DFE0EC','E0E0ED','E2DEEC','E2DEEC','E3DEEC','E3DDEB','E4DDEB','E5DDEB','E6DCEB','ECDCEA','E8DBEA'
+		,'EADAEA','EEDEEB','F1E1EB','F3E3EC','F5E5EC','F7E7ED','FFEEEE','FFF0EE','FFF2EE','FFF3EE','FFF4EE','FFF5EE'
+		,'FFF6EE','FFF7EE','FFF7EE','FFF8EE','FFF8EE','FFF9EE','FFF9EE','FFFAEE','FFFAEE','FFFBEE','FFFBEE','FFFCEE'
+		,'FFFDEE','FFFEEE','FFFEEE','FFFFEE','FDFFEE','FCFEED','FAFDEC','F9FCEC','F7FCEB','FFFCEE','FFFDEE','FFFDEE'
+		,'FFF9EE','FFFAEE','FFFAEE','FFFBEE','FFFBEE','FFFCEE','E0DFEC','E1DFEC']	
 	},
 	bindAll: function() {
 
@@ -44,15 +32,22 @@ var $tell = {
 			$('html, body').animate({scrollTop : moveOffset.top}, 700);
 		});
 
-		$(document).on("change", ".1st-lang-select", function(e) {
-			var siteLangNum = $("#1stLang").val();
-			$tell.setUpSiteView(siteLangNum);
-			$tell.changedNum();
-			$('#ENTER').focus();
-		});
+		$(document).on("click", ".lang", function(e) {
+			var $lang1 = $("#1stLang");
+			var $lang2 = $("#2ndLang");
+			if ($lang2.val().length ==0) {
+				var siteLangNum = $(this).val();
+				$lang1.val(siteLangNum);
+				$tell.setUpSiteView(siteLangNum);
+				$tell.changedNum();
+				$('#ENTER').focus();				
+			} else {
 
-		$(document).on("change", ".2st-lang-select", function(e) {
-			$tell.changedNum();
+			}
+
+
+			$tell.setButton($lang1.val(), $lang2.val());
+
 		});
 
 		$tell.init();
@@ -241,7 +236,7 @@ var $tell = {
  		$("main .title-image img").show();
  		$("header .title-image img").hide();
  		$(".number-infomation").hide();
-		$(".facebook-like").hide();
+ 		$(".facebook-like").hide();
  		$("footer").css({"position":"absolute","bottom":"0px"});
  	} else {
  		$("main .title-image img").hide();
@@ -250,6 +245,18 @@ var $tell = {
  		$(".facebook-like").hide();
  		$("footer").css({"position":"relative","bottom":""});
  	}
+ },
+ setButton : function(lang1, lang2){
+ 	var langLength = $tellLang.lang.length;
+ 	for (var i = 1; i < langLength +1; i++) {
+ 		var $btn = $("#btn-"+i);
+ 		if ($btn.val() == lang1 || $btn.val() == lang2) {
+ 			$btn.removeClass("dark-color").removeClass("light-color").addClass("dark-color");
+ 		} else {
+ 			$btn.removeClass("dark-color").removeClass("light-color").addClass("light-color");  
+ 		}
+ 	}
+ 	 	
  },
  init: function() {
         //색상 초기화
