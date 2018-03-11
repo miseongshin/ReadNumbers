@@ -15,6 +15,9 @@
 	background-color: #afc3cd;
 	color: #000000;
 }
+.site-lang .on{
+	background-color: #8c8c8c;
+}
 
 button {
 	max-height: 20px;
@@ -132,9 +135,15 @@ input[type=number] {
     margin-right: auto; 
 }
 .space{
+	display: block;
 	position: relative;
 	width: 100%;
 	min-height: 40px;
+}
+.black-color{
+	background-color: #000000;
+	color: #ffffff;
+	text-decoration: underline;
 }
 table {
 	display: inline-block;

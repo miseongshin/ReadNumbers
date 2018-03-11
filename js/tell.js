@@ -32,15 +32,43 @@ var $tell = {
 			$('html, body').animate({scrollTop : moveOffset.top}, 700);
 		});
 
-		$(document).on("click", ".lang", function(e) {
+		$(document).on("click", ".site-lang", function(e) {
 			var $lang1 = $("#1stLang");
 			var $lang2 = $("#2ndLang");
-			if ($lang2.val().length ==0) {
-				var siteLangNum = $(this).val();
-				$lang1.val(siteLangNum);
-				$tell.setUpSiteView(siteLangNum);
+
+			var clickNum = $(this).val();
+			console.log($(this).attr("id"));
+			if ($lang1.val().length ==0 && $lang1.val == clickNum) {
+
+			} else if ($lang1.val().length ==0 && $lang1.val != clickNum) {
+				$lang1.val(clickNum);
+				$tell.setUpSiteView(clickNum);
 				$tell.changedNum();
-				$('#ENTER').focus();				
+				$('#ENTER').focus();
+
+			} else {
+
+			}
+
+
+			$tell.setButton($lang1.val(), $lang2.val());
+
+		});
+
+		$(document).on("click", ".lang2", function(e) {
+			var $lang1 = $("#1stLang");
+			var $lang2 = $("#2ndLang");
+
+			var clickNum = $(this).val();
+			console.log(clickNum);
+			if ($lang1.val().length ==0 && $lang1.val == clickNum) {
+
+			} else if ($lang1.val().length ==0 && $lang1.val != clickNum) {
+				$lang1.val(clickNum);
+				$tell.setUpSiteView(clickNum);
+				$tell.changedNum();
+				$('#ENTER').focus();
+
 			} else {
 
 			}
@@ -68,10 +96,6 @@ var $tell = {
 		var readText = $tell.getArrToText(readArr);
 		$(".out-read-lang1 h1").html(readText);
 
-/*		var lang2 = $(".2nd-lang-select option:selected").val();
-		var readArr2 = $tell.getReadArr($tellLang.langUnitSize[lang2], enterText, lang2);
-		var readText2 = $tell.getArrToText(readArr2);
-		$(".out-read-lang2 h1").html(readText2);*/
 	},
 	getArrToText: function(readArr) {
 		var readText = "";
