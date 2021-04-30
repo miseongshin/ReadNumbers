@@ -21,9 +21,9 @@ var $tellLang = {
         ,tellNumTitle: ["숫자 좀 말해줘요.", "TELL ME THIS NUMBER", "この番号を言ってくれ", "告诉我这个数字"]
         ,enterNum: ["숫자 입력.", "Enter The Number.", "番号を入力", "输入号码"]
         ,langKo: ["한국어", "KOREAN", "韓国", "韩国语"]
-        ,langEn: ["영어", "English", "アメリカ", "英语"]
-        ,langJp: ["일본어", "Japanese", "日本", "日本语"]
-        ,langZh: ["중국어", "Chinese", "中国", "中国语"]
+        ,langEn: ["영어", "ENGLISH", "アメリカ", "英语"]
+        ,langJp: ["일본어", "JAPANESE", "日本", "日本语"]
+        ,langZh: ["중국어", "CHINESE", "中国", "中国语"]
         ,placeholder:["숫자를 입력해주세요. 예) 1234", "Enter The Number ex) 1234", "番号を入力してください。 例) 1234","输入号码。 例子) 1234"]
         ,footerText: [
         "<br><a href='https://miseongshin.github.io/'>신 미성</a> 제작 2017년 12월 - 2018년 3월"
@@ -70,7 +70,7 @@ var $tellLang = {
         var langNum = $tellLang.getSiteLang();
         var lang = ['korean','english','japanese','chinese'];
         var btnNum = 2;
-        for (var i = 1; i < lang.length+1; i++) {
+/*        for (var i = 1; i < lang.length+1; i++) {
             if (i==langNum) {
                 $("btn-1").removeClass(lang[i]).addClass(lang[langNum]);
                 $("#btn-1").attr("value",langNum); 
@@ -79,7 +79,7 @@ var $tellLang = {
                 $("#btn-"+btnNum).attr("value",i);      
                 btnNum++;   
             }
-        }
+        }*/
         $tellLang.setSiteLang(langNum);
     },
     getSiteLang : function(){
@@ -91,7 +91,8 @@ var $tellLang = {
         }
         return num;
     },
-    setSiteLang: function(num) {
+    setSiteLang: function(_num) {
+        var num = _num-1;
 
         if ($("footer").html()==$tellLang.info.footerText[num]) {
             return false;

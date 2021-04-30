@@ -34,19 +34,19 @@ var $tell = {
 
 		$(document).on("click", ".lang", function(e) {
 			var $lang1 = $("#1stLang");
-			var $lang2 = $("#2ndLang");
+            var $lang2 = $("#2ndLang");
+            $lang2.val($(this).attr("value"))
 			if ($lang2.val().length ==0) {
 				var siteLangNum = $(this).val();
 				$lang1.val(siteLangNum);
 				$tell.setUpSiteView(siteLangNum);
 				$tell.changedNum();
 				$('#ENTER').focus();				
-			} else {
+			} 
 
-			}
-
-
-			$tell.setButton($lang1.val(), $lang2.val());
+            $tell.setColor($("#ENTER").val().length);
+            $tellLang.setSiteLang($lang2.val());
+            $tell.changedNum();
 
 		});
 
@@ -54,7 +54,8 @@ var $tell = {
 	},
 	changedNum: function() {
 		$tell.setDisplay();
-		var enterLength = $("#ENTER").val().trim().length;
+        $("#ENTER").val($("#ENTER").val().trim());
+		var enterLength = $("#ENTER").val().length;
 		$tell.setColor(enterLength)
 		$tell.getEnterOutNum();
 	},
@@ -81,6 +82,7 @@ var $tell = {
 		return readText;
 	},
 	getReadArr: function(num, enterText, lang) {
+        
 		if (lang != 0 && lang != 1 && lang != 2 && lang != 3) {
 			alert("not allowed Language");
 			return false;
@@ -223,8 +225,24 @@ var $tell = {
  	var darkColor = $tell.color.darks[colorNum];
  	var lightColor = $tell.color.lights[colorNum];
 
+
+
  	$(".dark-color").css("backgroundColor" , "#"+darkColor);
  	$(".light-color").css("backgroundColor" ,"#"+lightColor);
+
+    $("#btn-1").css("backgroundColor" , "#"+lightColor);
+    $("#btn-2").css("backgroundColor" , "#"+lightColor);
+    $("#btn-3").css("backgroundColor" , "#"+lightColor);
+    $("#btn-4").css("backgroundColor" , "#"+lightColor);
+    if($("#2ndLang").val().length == 0){
+        $("#btn-"+$("#1stLang").val()).css("backgroundColor" , "#"+darkColor);
+    }else{
+        $("#btn-"+$("#2ndLang").val()).css("backgroundColor" , "#"+darkColor);
+    }
+    
+  
+
+
  	$tell.setResultView();
  },
  setUpSiteView: function(siteLangNum) {
@@ -247,16 +265,7 @@ var $tell = {
  	}
  },
  setButton : function(lang1, lang2){
- 	var langLength = $tellLang.lang.length;
- 	for (var i = 1; i < langLength +1; i++) {
- 		var $btn = $("#btn-"+i);
- 		if ($btn.val() == lang1 || $btn.val() == lang2) {
- 			$btn.removeClass("dark-color").removeClass("light-color").addClass("dark-color");
- 		} else {
- 			$btn.removeClass("dark-color").removeClass("light-color").addClass("light-color");  
- 		}
- 	}
- 	 	
+        //
  },
  init: function() {
         //색상 초기화

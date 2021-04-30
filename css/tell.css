@@ -6,16 +6,6 @@
 
 
 /*colors CSS */
-.dark-color{
-	background-color: #376a82;
-	color: #ffffff;
-}
-
-.light-color{
-	background-color: #afc3cd;
-	color: #000000;
-}
-
 button {
 	max-height: 20px;
 }
