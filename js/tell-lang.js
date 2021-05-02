@@ -100,7 +100,7 @@ var $tellLang = {
 
         $("#1stLang").val(num);
 
-        $("header .header-info").text($tellLang.info.headerInfo[num]);
+        $(".read-info").text($tellLang.info.headerInfo[num]);
         $(".korean").text($tellLang.info.langKo[num]);
         $(".english").text($tellLang.info.langEn[num]);
         $(".japanese").text($tellLang.info.langJp[num]);

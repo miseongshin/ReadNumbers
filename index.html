@@ -24,6 +24,7 @@
         <section class="title-image">
             <img src="" alt="Read Numbers Title" style="display: inline;">
             <div class="header-select">
+
                 <div class="header-info">다국어 숫자읽기. 숫자를 입력하면 설명이 나옵니다. </div>
                     <div class="btngroup">
                         <button class="button lang korean" id="btn-1" value="1">한국어</button>
@@ -32,75 +33,77 @@
                         <button class="button lang chinese" id="btn-4" value="4">중국어</button>
                     </div>
 
+
 <!--                 <button class="btn-white">트레이닝</button>
-                발음 듣기<input class="toggle" type="checkbox" /> -->
-            </div>
-        </section>
-    </header>
-    <main>
-        <section class="title-image">
-            <img src="">
-        </section>
-        <section class="out-number">
-            <h1></h1>
-        </section>
-        <section class="out-read-lang1">
-            <h1></h1>
-        </section>
-        <section class="out-read-lang2">
-            <h1></h1>
-        </section>
-        <section class="out-read-lang3">
-            <h1></h1>
-        </section>
-        <section class="out-read-lang4">
-            <h1></h1>
-        </section>
-        <section class="enter-number">
-            <input type="number" step="100" data-a-dec="," class="light-color ENTER" autofocus="autofocus"
-            placeholder="" id="ENTER" value="" min="0" max="9" style="ime-mode: disabled;">
-        </section>
-        <section class="space">
-        </section>
-        <section class="number-infomation light-color " style="display: none;">
-            <table>
-                <tbody>
-                    <tr>
-                        <th>숫자</th><th>지수</th><th>한국어</th><th>영어</th>
-                    </tr>
-                    <tr>
-                        <td>1</td><td>0</td><td>일</td><td>zero</td>
-                    </tr>
-                    <tr>
-                        <td>10</td><td>1</td><td>십</td><td>ten</td>
-                    </tr>
-                    <tr>
-                        <td>100</td><td>2</td><td>백</td><td>one hundred</td>
-                    </tr>
-                    <tr>
-                        <td>1,000</td><td>3</td><td>천</td><td>one thousand</td>
-                    </tr>
-                    <tr>
-                        <td>10,000</td><td>4</td><td>만</td><td>ten thousand</td>
-                    </tr>
-                    <tr>
-                        <td>1,000,000</td><td>6</td><td>백만</td><td>one million</td>
-                    </tr>
-                    <tr>
-                        <td>100,000,000</td><td>8</td><td>일억</td><td>one hundred million</td>
-                    </tr>
-                    <tr>
-                        <td>1,000,000,000</td><td>9</td><td>십억</td><td>one billion</td>
-                    </tr>  
-                    <tr>
-                        <td>1,000,000,000,000</td><td>12</td><td>일조</td><td>one quadrillion</td>
-                    </tr>                                                                                                     
-                </tbody>
-            </table>
-            <br>
-        </section>
-        <section class="space facebook-like">
-           <script>(function(d, s, id) {
+    발음 듣기<input class="toggle" type="checkbox" /> -->
+</div>
+</section>
+</header>
+<main>
+    <section class="title-image">
+        <img src="">
+    </section>
+    <section class="out-number">
+        <h1></h1>
+    </section>
+    <section class="out-read-lang1">
+        <h1></h1>
+    </section>
+    <section class="out-read-lang2">
+        <h1></h1>
+    </section>
+    <section class="out-read-lang3">
+        <h1></h1>
+    </section>
+    <section class="out-read-lang4">
+        <h1></h1>
+    </section>
+    <section class="enter-number">
+        <input type="number" step="100" data-a-dec="," class="light-color ENTER" autofocus="autofocus"
+        placeholder="" id="ENTER" value="" min="0" max="9" style="ime-mode: disabled;">
+    </section>
+    <section class="space">
+    </section>
+    <section class="number-infomation light-color " style="display: none;">
+        <table>
+            <tbody>
+                <tr>
+                    <th>숫자</th><th>지수</th><th>한국어</th><th>영어</th>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>일</td><td>zero</td>
+                </tr>
+                <tr>
+                    <td>10</td><td>1</td><td>십</td><td>ten</td>
+                </tr>
+                <tr>
+                    <td>100</td><td>2</td><td>백</td><td>one hundred</td>
+                </tr>
+                <tr>
+                    <td>1,000</td><td>3</td><td>천</td><td>one thousand</td>
+                </tr>
+                <tr>
+                    <td>10,000</td><td>4</td><td>만</td><td>ten thousand</td>
+                </tr>
+                <tr>
+                    <td>1,000,000</td><td>6</td><td>백만</td><td>one million</td>
+                </tr>
+                <tr>
+                    <td>100,000,000</td><td>8</td><td>일억</td><td>one hundred million</td>
+                </tr>
+                <tr>
+                    <td>1,000,000,000</td><td>9</td><td>십억</td><td>one billion</td>
+                </tr>  
+                <tr>
+                    <td>1,000,000,000,000</td><td>12</td><td>일조</td><td>one quadrillion</td>
+                </tr>                                                                                                     
+            </tbody>
+        </table>
+        <br>
+    </section>
+    <section class="space facebook-like">
+        <div class="read-info">다국어 숫자읽기. 숫자를 입력하면 설명이 나옵니다. </div>
+        <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
