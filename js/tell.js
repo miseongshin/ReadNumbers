@@ -23,8 +23,7 @@ var $tell = {
 
 			var regex = /[^0-9]/g;
 			if ($tell.isNotNumKey(e) || regex.test(enterValue) ) {
-				alert("Please, Press Only Number.");
-				enterValue = enterValue.slice(0,-1);
+				enterValue = enterValue.replace(regex, "");
 				$ENTER.val(enterValue);
 			}
 			$tell.changedNum();
