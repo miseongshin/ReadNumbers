@@ -34,6 +34,10 @@ var $tellLang = {
         ,
         "<br><a href='https://miseongshin.github.io/'> 申美星 </a>创建, 在2017年12月 - 2018年3月"
         ]
+        ,tNum:["숫자","Number","数字","数字"]
+        ,t0:["0 갯수","Count 0", "0本数", "0號"]
+        ,tAsian:["아시아", "Asia", "アジア","亞洲"]
+
     },
     langUnitArr: {
     	0 : ["","만","억","조","경","해","서","양","구","간","정","재","극","항아사","아승기","나유타","불가사의","무량대수"],
@@ -107,6 +111,23 @@ var $tellLang = {
         $(".chinese").text($tellLang.info.langZh[num]);
         $("footer").html($tellLang.info.footerText[num]);
         $("#ENTER").attr("placeholder", $tellLang.info.placeholder[num]);
+        $("#t-num").text($tellLang.info.tNum[num]);
+        $("#t-c0").text($tellLang.info.t0[num]);
+        $("#t-asia").text($tellLang.info.tAsian[num]);
+        $("#t-eng").text($tellLang.info.langEn[num]);
+        $("#t-1").text($tellLang.lang1Arr[num][1]);
+        $("#t-10").text($tellLang.lang10Arr[num][1]);
+        $("#t-100").text($tellLang.lang10Arr[num][2]);
+        $("#t-1000").text($tellLang.lang10Arr[num][3]);
+        $("#t-10000").text($tellLang.langUnitArr[num][1]);
+        $("#t-1m").text($tellLang.lang10Arr[num][2]+$tellLang.langUnitArr[num][1]);
+        $("#t-1hm").text($tellLang.lang1Arr[num][1]+$tellLang.langUnitArr[num][2]);
+        $("#t-1b").text($tellLang.lang10Arr[num][1]+$tellLang.langUnitArr[num][2]);
+        $("#t-1q").text($tellLang.lang1Arr[num][1]+$tellLang.langUnitArr[num][3]);
+
+        
+
+
 
 
 /*    var $titleImage = $("main .title-image>img") ;
