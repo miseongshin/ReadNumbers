@@ -266,6 +266,17 @@ var $tell = {
  setButton : function(lang1, lang2){
         //
  },
+ animate : function(){
+        var $titleIminge = $(".title-image img");
+        var max_width =$titleIminge.css("width");
+        var min_width = parseInt(max_width)*(0.8)+"px";
+        $titleIminge.width(min_width).css("opacity","0.5");
+        $titleIminge.animate({
+            opacity: 1,
+            width: max_width
+        },500);
+
+ },
  init: function() {
         //색상 초기화
         $tell.setColor(0);

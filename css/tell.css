@@ -30,6 +30,7 @@ main .title-image img {
 	max-width: 700px;
 	display: inline-block;
 	width: 100%;
+	margin-top: 40px;
 	
 }
 
@@ -85,6 +86,7 @@ footer {
 	border-right:  0px;
 	border-left: 0px;
 	border-bottom: 0px;
+	min-width: 360px;
 }
 
 input[type=number] {
@@ -119,7 +121,8 @@ input[type=number] {
 	max-width: 1000px;
 	border: 2px solid #ffffff;
 	margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
+    min-width: 360px;
 }
 .space{
 	position: relative;
@@ -128,16 +131,32 @@ input[type=number] {
 }
 table {
 	display: inline-block;
-    border: 1px solid #ddd;
     padding: 8px;
+    min-width: 360px
+    width:100%;
 }
+table th {
+    width: 25%;
+}
+/*#out-number-space{
+	height: 350px  ;			
+}*/
 @media ( max-width: 360px ) {
 	main .title-image img { 
 		width: 360px;
+		margin-top: 5px;
 	}
 
 	.number-infomation{
 		border-right:  0px;
 		border-left: 0px;
+        margin-left: 0.5px;
+        margin-right: 0.5px;
+        font-size: small;
 	}
+
+	/*#out-number-space  {
+		height: 150px  ;			
+	}*/
+	    
 }
